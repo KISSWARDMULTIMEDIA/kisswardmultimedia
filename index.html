@@ -6,8 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO Meta Tags -->
-  <title>Top Video Editing &amp; Website Developement in Accra | Kissward Multimedia</title>
+  <title>Top Video Editing &amp; Website Development in Accra | Kissward Multimedia</title>
   <link rel="icon" href="kisswardmultimedia-logo.png" type="image/png" />
+  <link rel="icon" href="kisswardmultimedia-logo.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="kisswardmultimedia-logo.png" sizes="64x64" type="image/png" />
+  <link rel="icon" href="kisswardmultimedia-logo.png" sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href="kisswardmultimedia-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="kisswardmultimedia-logo.png" />
+  <meta name="msapplication-TileImage" content="kisswardmultimedia-logo.png" />
+  <meta name="msapplication-TileColor" content="#ff6600" />
+  <meta name="theme-color" content="#ff6600" />
   <meta name="description" content="Kissward Multimedia is Accra's premier creative studio offering expert video editing, custom website developement, graphic design, and IT support. Elevate your brand today!" />
   <meta name="keywords" content="Kissward Multimedia, video editing Accra, website developement Ghana, web design Accra, graphic design Ghana, animation services, IT support Accra, creative agency Ghana" />
   <meta name="author" content="Kissward Multimedia" />
@@ -18,7 +26,7 @@
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kisswardmultimedia.com/" />
-  <meta property="og:title" content="Top Video Editing &amp; Website Developement in Accra | Kissward Multimedia" />
+  <meta property="og:title" content="Top Video Editing &amp; Website Development in Accra | Kissward Multimedia" />
   <meta property="og:description" content="Kissward Multimedia is Accra's premier creative studio offering expert video editing, custom website developement, graphic design, and IT support. Elevate your brand today!" />
   <meta property="og:image" content="https://kisswardmultimedia.com/og-image.jpg" />
   <meta property="og:locale" content="en_GH" />
@@ -26,7 +34,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Top Video Editing &amp; Website Developement in Accra | Kissward Multimedia" />
+  <meta name="twitter:title" content="Top Video Editing &amp; Website Development in Accra | Kissward Multimedia" />
   <meta name="twitter:description" content="Kissward Multimedia is Accra's premier creative studio offering expert video editing, custom website developement, graphic design, and IT support. Elevate your brand today!" />
   <meta name="twitter:image" content="https://kisswardmultimedia.com/og-image.jpg" />
 
@@ -42,9 +50,25 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Kissward Multimedia",
-    "description": "Kissward Multimedia is Accra's premier creative studio offering expert video editing, custom website developement, graphic design, and IT support.",
+    "description": "Kissward Multimedia is Accra's premier creative studio offering expert video editing, custom website development, graphic design, animation, and IT support. Founded and led by David Kissward — a multimedia expert with over a decade of experience.",
     "url": "https://kisswardmultimedia.com",
     "telephone": "+233542603997",
+    "founder": {
+      "@type": "Person",
+      "name": "David Kissward",
+      "jobTitle": "CEO and Founder",
+      "description": "David Kissward is a Ghanaian multimedia professional with over 10 years of expertise in graphic design, corporate branding, website and app development, 2D and 3D animation, motion graphics, and video production.",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Kissward Multimedia"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Accra",
+        "addressRegion": "Greater Accra",
+        "addressCountry": "GH"
+      }
+    },
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Accra",
@@ -78,11 +102,14 @@
       "name": "Multimedia Services",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video Editing Services in Ghana" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Developement" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Graphic Design & Branding" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Animation & Motion Graphics" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT Support & PC Repairs" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Creation & Social Media Management" } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Creation & Social Media Management" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "App Development Ghana" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Branding Ghana" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "2D & 3D Animation Ghana" } }
       ]
     }
   }
@@ -465,8 +492,223 @@
     .fi-2 { top: 40px; right: -20px; animation-delay: 1.2s; }
     .fi-3 { top: 200px; left: -40px; animation-delay: 0.6s; }
 
-    /* ─── ABOUT ─── */
+    /* ─── CEO / ABOUT PROFILE ─── */
     #about { background: var(--bg2); }
+
+    /* CEO Hero 2-col layout */
+    .ceo-hero {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 64px;
+      align-items: flex-start;
+      margin-bottom: 64px;
+    }
+
+    /* Photo column */
+    .ceo-photo-col { display: flex; flex-direction: column; gap: 28px; }
+    .ceo-photo-frame {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(232,197,106,0.25);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(232,197,106,0.1);
+    }
+    .ceo-photo-frame::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--cyan), var(--gold));
+      z-index: 2;
+    }
+    .ceo-photo-frame img {
+      width: 100%; display: block;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: top center;
+      filter: brightness(1.02) contrast(1.04) saturate(1.05);
+      transition: transform 0.6s ease;
+    }
+    .ceo-photo-frame:hover img { transform: scale(1.03); }
+    .ceo-photo-badge {
+      position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+      background: rgba(8,10,14,0.82);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(232,197,106,0.3);
+      border-radius: 100px;
+      padding: 7px 18px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+      color: var(--gold);
+      white-space: nowrap;
+      display: flex; align-items: center; gap: 8px;
+      z-index: 3;
+    }
+    .ceo-badge-dot {
+      width: 7px; height: 7px; background: #4caf50;
+      border-radius: 50%; animation: pulse 2s ease infinite;
+    }
+
+    /* Identity card below photo */
+    .ceo-identity {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 28px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ceo-identity::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--cyan));
+    }
+    .ceo-name {
+      font-family: var(--font-disp);
+      font-size: 1.8rem; letter-spacing: 0.06em;
+      color: var(--white); line-height: 1;
+      margin-bottom: 6px;
+    }
+    .ceo-title {
+      font-size: 0.82rem; color: var(--gold);
+      font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .ceo-location {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 0.82rem; color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .ceo-decade-badge {
+      display: flex; align-items: center; gap: 16px;
+      background: rgba(232,197,106,0.08);
+      border: 1px solid rgba(232,197,106,0.2);
+      border-radius: 12px; padding: 14px 18px;
+    }
+    .ceo-decade-num {
+      font-family: var(--font-disp);
+      font-size: 2.4rem; color: var(--gold); line-height: 1;
+    }
+    .ceo-decade-num sup { font-size: 1rem; }
+    .ceo-decade-lbl {
+      font-size: 0.78rem; color: var(--muted);
+      letter-spacing: 0.05em; line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    /* Bio column */
+    .ceo-bio-col { display: flex; flex-direction: column; gap: 20px; }
+    .ceo-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.15rem; color: var(--text);
+      line-height: 1.65;
+      border-left: 3px solid var(--gold);
+      padding: 18px 0 18px 24px;
+      background: rgba(232,197,106,0.04);
+      border-radius: 0 12px 12px 0;
+      margin: 0;
+    }
+    .ceo-quote cite {
+      display: block; margin-top: 10px;
+      font-size: 0.82rem; color: var(--gold);
+      font-style: normal; font-weight: 600; letter-spacing: 0.06em;
+    }
+    .ceo-bio-text {
+      font-size: 0.97rem; color: var(--muted);
+      line-height: 1.82;
+    }
+    .ceo-bio-text strong { color: var(--text); }
+
+    /* Expertise tags */
+    .ceo-expertise {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 4px;
+    }
+    .expertise-tag {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      border: 1px solid rgba(232,197,106,0.25);
+      border-radius: 100px;
+      color: var(--gold);
+      background: rgba(232,197,106,0.06);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .expertise-tag:hover {
+      background: rgba(232,197,106,0.14);
+      border-color: var(--gold);
+    }
+
+    /* Stats Row */
+    .ceo-stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 40px;
+      margin-bottom: 40px;
+      position: relative; overflow: hidden;
+    }
+    .ceo-stats-row::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--cyan), var(--gold));
+    }
+    .ceo-stat { text-align: center; }
+    .ceo-stat-num {
+      font-family: var(--font-disp);
+      font-size: 2.8rem; color: var(--gold);
+      line-height: 1; display: block; margin-bottom: 10px;
+    }
+    .ceo-stat-num sup { font-size: 1.2rem; }
+    .ceo-stat-lbl {
+      font-size: 0.78rem; color: var(--muted);
+      letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.5;
+    }
+
+    /* Values Row */
+    .ceo-values-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .ceo-value-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .ceo-value-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(232,197,106,0.3);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+    }
+    .ceo-value-icon { font-size: 1.8rem; }
+    .ceo-value-card strong {
+      font-size: 0.95rem; color: var(--white); font-weight: 700;
+    }
+    .ceo-value-card span {
+      font-size: 0.82rem; color: var(--muted); line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .ceo-hero { grid-template-columns: 300px 1fr; gap: 44px; }
+    }
+    @media (max-width: 900px) {
+      .ceo-hero { grid-template-columns: 1fr; }
+      .ceo-photo-col { max-width: 380px; margin: 0 auto; }
+      .ceo-stats-row { grid-template-columns: repeat(2, 1fr); }
+      .ceo-values-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .ceo-stats-row { grid-template-columns: 1fr 1fr; padding: 24px 20px; }
+      .ceo-values-row { grid-template-columns: 1fr; }
+      .ceo-stat-num { font-size: 2rem; }
+    }
     .about-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 80px; align-items: center;
@@ -714,6 +956,180 @@
 
     @media (max-width: 700px) {
       .portfolio-platforms { grid-template-columns: 1fr; }
+    }
+
+    /* ─── PORTFOLIO SLIDER ─── */
+    .portfolio-slider-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 48px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+    .portfolio-slider-track {
+      display: flex;
+      transition: transform 0.65s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+    .portfolio-slide {
+      min-width: 33.333%;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .portfolio-slide img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+      filter: brightness(0.85);
+    }
+    .portfolio-slide:hover img {
+      transform: scale(1.05);
+      filter: brightness(1);
+    }
+    .portfolio-slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex; align-items: flex-end;
+      padding: 20px;
+    }
+    .portfolio-slide:hover .portfolio-slide-overlay { opacity: 1; }
+    .portfolio-slide-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(0,0,0,0.5);
+      border: 1px solid rgba(232,197,106,0.3);
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    /* Slider Nav Buttons */
+    .slider-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      z-index: 10;
+      width: 48px; height: 48px;
+      background: rgba(8,10,14,0.75);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(232,197,106,0.3);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+    .slider-btn:hover {
+      background: rgba(232,197,106,0.15);
+      border-color: var(--gold);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .slider-btn-prev { left: 16px; }
+    .slider-btn-next { right: 16px; }
+
+    /* Slider Dots */
+    .slider-dots {
+      display: flex; justify-content: center; gap: 8px;
+      padding: 16px 0 4px;
+    }
+    .slider-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border);
+      border: 1px solid rgba(232,197,106,0.2);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .slider-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+      border-color: var(--gold);
+    }
+
+    /* Slider counter badge */
+    .slider-counter {
+      position: absolute; bottom: 14px; right: 16px;
+      z-index: 10;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.7);
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(16px);
+      align-items: center; justify-content: center;
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-img-wrap {
+      position: relative;
+      max-width: 90vw; max-height: 88vh;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lightbox-img-wrap img {
+      max-width: 90vw; max-height: 88vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 40px 100px rgba(0,0,0,0.8);
+      border: 1px solid rgba(232,197,106,0.2);
+    }
+    .lightbox-close {
+      position: absolute; top: -44px; right: 0;
+      background: none; border: none;
+      color: rgba(255,255,255,0.7); font-size: 1.6rem;
+      cursor: pointer; transition: color .2s;
+      line-height: 1;
+    }
+    .lightbox-close:hover { color: var(--gold); }
+    .lightbox-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(8,10,14,0.7);
+      border: 1px solid rgba(232,197,106,0.3);
+      color: var(--gold);
+      width: 52px; height: 52px; border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .25s, border-color .25s;
+    }
+    .lightbox-nav:hover { background: rgba(232,197,106,0.15); border-color: var(--gold); }
+    .lightbox-nav-prev { left: -70px; }
+    .lightbox-nav-next { right: -70px; }
+    .lightbox-caption {
+      position: absolute; bottom: -36px; left: 0; right: 0;
+      text-align: center;
+      font-size: 0.8rem; color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 900px) {
+      .portfolio-slide { min-width: 50%; }
+      .portfolio-slide img { height: 220px; }
+      .lightbox-nav-prev { left: -44px; }
+      .lightbox-nav-next { right: -44px; }
+    }
+    @media (max-width: 600px) {
+      .portfolio-slide { min-width: 100%; }
+      .portfolio-slide img { height: 240px; }
+      .lightbox-nav { display: none; }
     }
 
     /* ─── SOCIAL / CONNECT ─── */
@@ -1065,7 +1481,7 @@
             <div class="hero-logo-sub">Multimedia · Accra · Ghana</div>
             <div class="hero-services-chips">
               <span class="chip">Video Editing</span>
-              <span class="chip">Website Developement</span>
+              <span class="chip">Website Development</span>
               <span class="chip">Animation</span>
               <span class="chip">Graphic Design</span>
               <span class="chip">IT Support</span>
@@ -1082,70 +1498,132 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="section" aria-labelledby="about-heading">
+<!-- ABOUT / CEO PROFILE -->
+<section id="about" class="section" aria-labelledby="about-heading" itemscope itemtype="https://schema.org/Person">
+  <meta itemprop="name" content="David Kissward" />
+  <meta itemprop="jobTitle" content="CEO &amp; Founder, Kissward Multimedia" />
+  <meta itemprop="worksFor" content="Kissward Multimedia" />
+  <meta itemprop="url" content="https://kisswardmultimedia.com/" />
   <div class="glow-line" style="top:0;width:100%;left:0;" aria-hidden="true"></div>
   <div class="container">
-    <div class="about-grid">
-      <div class="about-visual reveal">
-        <div class="about-card">
-          <blockquote class="about-quote">
-            "We combine innovation with technical expertise to produce content that inspires, engages, and connects with audiences worldwide."
-          </blockquote>
-          <div class="about-values">
-            <div class="value-item">
-              <div class="value-icon" aria-hidden="true">🎯</div>
-              <div class="value-text">
-                <strong>Precision & Quality</strong>
-                <span>Every frame, pixel, and beat crafted with intentional care.</span>
-              </div>
-            </div>
-            <div class="value-item">
-              <div class="value-icon" aria-hidden="true">🚀</div>
-              <div class="value-text">
-                <strong>Creative Innovation</strong>
-                <span>Fresh concepts and cutting-edge techniques for every project.</span>
-              </div>
-            </div>
-            <div class="value-item">
-              <div class="value-icon" aria-hidden="true">🤝</div>
-              <div class="value-text">
-                <strong>Client Partnership</strong>
-                <span>Your vision is our blueprint — we build together.</span>
-              </div>
-            </div>
+
+    <!-- Section Header -->
+    <div class="reveal" style="text-align:center;margin-bottom:60px;">
+      <span class="section-tag">Meet the Founder</span>
+      <h2 id="about-heading" class="section-title">The <span class="gold">Visionary</span> Behind<br>Kissward Multimedia</h2>
+      <p class="section-subtitle" style="margin:0 auto;">Ghana's leading multimedia expert — shaping brands, telling stories, and building digital experiences that endure.</p>
+    </div>
+
+    <!-- CEO Hero Block -->
+    <div class="ceo-hero reveal">
+      <div class="ceo-photo-col">
+        <div class="ceo-photo-frame">
+          <img
+            src="David Kissward.jpeg"
+            alt="David Kissward — CEO and Founder of Kissward Multimedia, Accra Ghana"
+            itemprop="image"
+            loading="lazy"
+          />
+          <div class="ceo-photo-badge">
+            <span class="ceo-badge-dot"></span>
+            Available for Projects
+          </div>
+        </div>
+        <div class="ceo-identity">
+          <div class="ceo-name" itemprop="name">David Kissward</div>
+          <div class="ceo-title" itemprop="jobTitle">CEO &amp; Founder · Kissward Multimedia</div>
+          <div class="ceo-location">
+            <span aria-hidden="true">📍</span>
+            <span itemprop="address">Accra, Greater Accra, Ghana</span>
+          </div>
+          <div class="ceo-decade-badge">
+            <span class="ceo-decade-num">10<sup>+</sup></span>
+            <span class="ceo-decade-lbl">Years of<br>Excellence</span>
           </div>
         </div>
       </div>
-      <div class="about-text-content reveal reveal-delay-2">
-        <span class="section-tag">Who We Are</span>
-        <h2 id="about-heading" class="section-title">Creative Multimedia<br><span class="gold">Services in Ghana</span></h2>
-        <p class="about-description">
-          At <strong>Kissward Multimedia</strong>, we specialize in multimedia services in Ghana that bring ideas to life. From professional video editing and website developement to graphic design, animation, and IT support, our team delivers creative solutions tailored to businesses, brands, and individuals.
+
+      <div class="ceo-bio-col reveal reveal-delay-2">
+        <blockquote class="ceo-quote" itemprop="description">
+          "Great design is not just what it looks like — it's how it performs, how it connects, and the legacy it leaves behind. That is the Kissward standard."
+          <cite>— David Kissward</cite>
+        </blockquote>
+
+        <p class="ceo-bio-text">
+          <strong>David Kissward</strong> is one of Ghana's most accomplished multimedia professionals and the driving force behind <strong>Kissward Multimedia</strong>, Accra's premier creative and digital studio. With over a decade of hands-on mastery spanning graphic design, corporate branding, web and app development, 2D &amp; 3D animation, motion graphics, and video production, David has built a reputation for delivering world-class creative work that consistently exceeds client expectations.
         </p>
-        <p class="about-description">
-          Based in <strong>Accra, Ghana</strong>, we serve local and international clients who demand excellence in visual storytelling, branding, and technical support.
+        <p class="ceo-bio-text">
+          A visionary leader with a rare blend of technical brilliance and artistic intuition, David has led the conceptualisation and execution of <strong>500+ projects</strong> for clients ranging from government institutions and NGOs to corporate brands, event organizers, and individual entrepreneurs across Ghana and internationally. His expertise has shaped festival identities, broadcast graphics, product packaging, award-winning animations, and high-converting digital platforms — all from his studio in Accra.
         </p>
-        <div class="about-highlights" aria-label="Company achievements">
-          <div class="highlight-box">
-            <div class="num">500+</div>
-            <div class="lbl">Projects Delivered</div>
-          </div>
-          <div class="highlight-box">
-            <div class="num">6+</div>
-            <div class="lbl">Service Areas</div>
-          </div>
-          <div class="highlight-box">
-            <div class="num">GH</div>
-            <div class="lbl">Accra, Ghana</div>
-          </div>
-          <div class="highlight-box">
-            <div class="num">24/7</div>
-            <div class="lbl">WhatsApp Support</div>
-          </div>
+        <p class="ceo-bio-text">
+          As a <strong>certified graphic designer and brand strategist</strong>, David's approach to corporate branding goes beyond aesthetics — he architects visual identities that communicate authority, trust, and purpose. His website and app development work integrates cutting-edge UI/UX principles with robust technical architecture, ensuring every digital product is fast, SEO-optimised, and built to convert. In animation, his 2D character work and cinematic 3D renders have been featured in national broadcasts and international campaigns alike.
+        </p>
+        <p class="ceo-bio-text">
+          David founded Kissward Multimedia with a singular mission: to democratise access to premium creative services in Africa, and to prove that world-standard multimedia work can be produced right here in <strong>Accra, Ghana</strong>. Under his leadership, the studio has become the go-to creative partner for brands that refuse to settle for ordinary.
+        </p>
+
+        <!-- Expertise Tags -->
+        <div class="ceo-expertise" aria-label="Areas of expertise">
+          <span class="expertise-tag">Graphic Design</span>
+          <span class="expertise-tag">Corporate Branding</span>
+          <span class="expertise-tag">Website Development</span>
+          <span class="expertise-tag">App Development</span>
+          <span class="expertise-tag">2D Animation</span>
+          <span class="expertise-tag">3D Animation</span>
+          <span class="expertise-tag">Motion Graphics</span>
+          <span class="expertise-tag">Video Production</span>
+          <span class="expertise-tag">Logo Design</span>
+          <span class="expertise-tag">Packaging Design</span>
+          <span class="expertise-tag">SEO &amp; Digital Marketing</span>
+          <span class="expertise-tag">IT Support</span>
         </div>
       </div>
     </div>
+
+    <!-- Stats Row -->
+    <div class="ceo-stats-row reveal reveal-delay-3" aria-label="David Kissward career highlights">
+      <div class="ceo-stat">
+        <div class="ceo-stat-num">10<sup>+</sup></div>
+        <div class="ceo-stat-lbl">Years of Professional<br>Multimedia Experience</div>
+      </div>
+      <div class="ceo-stat">
+        <div class="ceo-stat-num">500<sup>+</sup></div>
+        <div class="ceo-stat-lbl">Creative Projects<br>Successfully Delivered</div>
+      </div>
+      <div class="ceo-stat">
+        <div class="ceo-stat-num">6</div>
+        <div class="ceo-stat-lbl">Core Service<br>Specialisations</div>
+      </div>
+      <div class="ceo-stat">
+        <div class="ceo-stat-num">🇬🇭</div>
+        <div class="ceo-stat-lbl">Proudly Based in<br>Accra, Ghana</div>
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div class="ceo-values-row reveal reveal-delay-4" role="list" aria-label="Core values">
+      <div class="ceo-value-card" role="listitem">
+        <div class="ceo-value-icon" aria-hidden="true">🎯</div>
+        <strong>Precision &amp; Quality</strong>
+        <span>Every pixel, frame, and line of code crafted with uncompromising intentional care.</span>
+      </div>
+      <div class="ceo-value-card" role="listitem">
+        <div class="ceo-value-icon" aria-hidden="true">🚀</div>
+        <strong>Creative Innovation</strong>
+        <span>Cutting-edge concepts and techniques that keep our clients ahead of the curve.</span>
+      </div>
+      <div class="ceo-value-card" role="listitem">
+        <div class="ceo-value-icon" aria-hidden="true">🤝</div>
+        <strong>Client Partnership</strong>
+        <span>Your vision becomes our blueprint — we build transformative work together.</span>
+      </div>
+      <div class="ceo-value-card" role="listitem">
+        <div class="ceo-value-icon" aria-hidden="true">🌍</div>
+        <strong>African Excellence</strong>
+        <span>Proving that world-class multimedia output can originate from the heart of Africa.</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1168,7 +1646,7 @@
 
       <article class="service-card reveal reveal-delay-2" role="listitem">
         <div class="service-icon" aria-hidden="true">💻</div>
-        <h3 class="service-name">Website Developement</h3>
+        <h3 class="service-name">Website Development</h3>
         <p class="service-desc">Custom websites, web apps, and e-commerce platforms. High-performing, responsive, and SEO-optimized digital experiences tailored to your brand.</p>
         <div class="service-arrow" aria-hidden="true">→</div>
       </article>
@@ -1215,6 +1693,104 @@
         <p class="section-subtitle">Explore our creative work live on Facebook and YouTube — website developement, video productions, animations, and more.</p>
       </div>
     </div>
+    <!-- Portfolio Image Slider -->
+    <div class="portfolio-slider-wrap reveal" aria-label="Portfolio image gallery" role="region">
+      <div class="portfolio-slider-track" id="sliderTrack">
+        <div class="portfolio-slide" data-index="0" onclick="openLightbox(0)">
+          <img src="kissward multimedia (1).jpeg" alt="DC Carnival Billboard Design" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Billboard Design</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="1" onclick="openLightbox(1)">
+          <img src="kissward multimedia (3).jpeg" alt="Mini Hogbe Billboard Design" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Billboard Design</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="2" onclick="openLightbox(2)">
+          <img src="kissward multimedia (4).jpeg" alt="Hogbe Tsotso Za Book Cover" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Print &amp; Branding</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="3" onclick="openLightbox(3)">
+          <img src="kissward multimedia (5).jpeg" alt="50th Birthday Invitation &amp; Programme" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Event Design</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="4" onclick="openLightbox(4)">
+          <img src="kissward multimedia (8).jpeg" alt="Birthday Flyer – Mrs. Millicent Quainoo" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Flyer Design</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="5" onclick="openLightbox(5)">
+          <img src="kissward multimedia (11).jpeg" alt="Yijiem 2025 Event Flyer" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Event Flyer</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="6" onclick="openLightbox(6)">
+          <img src="kissward multimedia (13).jpeg" alt="Eli – Animated Character" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Animation</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="7" onclick="openLightbox(7)">
+          <img src="kissward multimedia (18).jpeg" alt="Islam for Ghana Brochure" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Brochure Design</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="8" onclick="openLightbox(8)">
+          <img src="kissward multimedia (24).jpeg" alt="ODO Tissue Package Design" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Packaging Design</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="9" onclick="openLightbox(9)">
+          <img src="kissward multimedia (25).jpeg" alt="At Rest Memorial Bookmark" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Memorial Design</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="10" onclick="openLightbox(10)">
+          <img src="kissward multimedia (29).jpeg" alt="Talent Homecare Mug Design" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Merchandise</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="11" onclick="openLightbox(11)">
+          <img src="kissward multimedia (33).jpeg" alt="Rev. Eric Fakor Avah 60th Birthday" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Event Invitation</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="12" onclick="openLightbox(12)">
+          <img src="kissward multimedia (36).jpeg" alt="3D Motion Graphics" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">3D / Motion Graphics</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="13" onclick="openLightbox(13)">
+          <img src="kissward multimedia (37).jpeg" alt="Ikaf Banana Flavour Product Visual" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Product Visualisation</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="14" onclick="openLightbox(14)">
+          <img src="kissward multimedia (40).jpeg" alt="Tri-O Concept Food Package Design" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Packaging Design</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="15" onclick="openLightbox(15)">
+          <img src="kissward multimedia (43).jpeg" alt="Broadcast / Motion Loop" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Broadcast Design</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="16" onclick="openLightbox(16)">
+          <img src="kissward multimedia (48).jpeg" alt="3D Abstract Motion" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Motion Graphics</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="17" onclick="openLightbox(17)">
+          <img src="kissward multimedia (51).jpeg" alt="Cozzy Apparel Logo" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">Logo Design</span></div>
+        </div>
+        <div class="portfolio-slide" data-index="18" onclick="openLightbox(18)">
+          <img src="kissward multimedia (53).jpeg" alt="Gold Trophy 3D Render" loading="lazy" />
+          <div class="portfolio-slide-overlay"><span class="portfolio-slide-label">3D Design</span></div>
+        </div>
+      </div>
+
+      <button class="slider-btn slider-btn-prev" id="sliderPrev" aria-label="Previous slide">&#8592;</button>
+      <button class="slider-btn slider-btn-next" id="sliderNext" aria-label="Next slide">&#8594;</button>
+      <div class="slider-counter" id="sliderCounter" aria-live="polite">1 / 7</div>
+    </div>
+    <div class="slider-dots" id="sliderDots" role="tablist" aria-label="Slide navigation"></div>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+      <div class="lightbox-img-wrap">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">✕</button>
+        <button class="lightbox-nav lightbox-nav-prev" id="lightboxPrev" aria-label="Previous image">&#8592;</button>
+        <img id="lightboxImg" src="" alt="" />
+        <button class="lightbox-nav lightbox-nav-next" id="lightboxNext" aria-label="Next image">&#8594;</button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+      </div>
+    </div>
+
     <div class="portfolio-platforms reveal" aria-label="Portfolio — our work on social platforms">
 
       <!-- Facebook Card -->
@@ -1407,14 +1983,14 @@
             <div class="contact-method-icon" aria-hidden="true">💬</div>
             <div class="contact-method-info">
               <strong>WhatsApp Direct Chat</strong>
-              <span>0542603997 — Tap to chat now</span>
+              <span>+233542603997 — Tap to chat now</span>
             </div>
           </a>
-          <a href="tel:0542603997" class="contact-method" aria-label="Call Kissward Multimedia" role="listitem">
+          <a href="tel:+233542603997" class="contact-method" aria-label="Call Kissward Multimedia" role="listitem">
             <div class="contact-method-icon" aria-hidden="true">📞</div>
             <div class="contact-method-info">
               <strong>Phone Call</strong>
-              <span>0542 603 997</span>
+              <span>+233542603997</span>
             </div>
           </a>
           <div class="contact-method" role="listitem">
@@ -1448,7 +2024,7 @@
             <select id="service" name="service">
               <option value="">Select a service...</option>
               <option value="video">Video Editing</option>
-              <option value="web">Website Developement</option>
+              <option value="web">Website Development</option>
               <option value="design">Graphic Design &amp; Branding</option>
               <option value="animation">Animation &amp; Motion Graphics</option>
               <option value="it">IT Support &amp; PC Repairs</option>
@@ -1491,10 +2067,10 @@
       </div>
       <div class="footer-divider" role="separator"></div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2025 Kissward Multimedia. All rights reserved. · Accra, Ghana · <a href="tel:0542603997" style="color:var(--gold);text-decoration:none">0542 603 997</a></p>
+        <p class="footer-copy">© 2026 Kissward Multimedia. All rights reserved. · Accra, Ghana · <a href="tel:+233542603997" style="color:var(--gold);text-decoration:none">+233542603997</a></p>
         <div class="footer-badges" aria-label="Service badges">
           <span class="badge-pill">Video Editing Ghana</span>
-          <span class="badge-pill">Website Developement</span>
+          <span class="badge-pill">Website Development</span>
           <span class="badge-pill">Graphic Design GH</span>
         </div>
       </div>
@@ -1579,6 +2155,131 @@
     btn.style.background = '#25d366';
     setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; }, 4000);
   });
+
+  // ─── Portfolio Slider ───
+  (function() {
+    const track      = document.getElementById('sliderTrack');
+    const prevBtn    = document.getElementById('sliderPrev');
+    const nextBtn    = document.getElementById('sliderNext');
+    const dotsWrap   = document.getElementById('sliderDots');
+    const counter    = document.getElementById('sliderCounter');
+    const slides     = track ? track.querySelectorAll('.portfolio-slide') : [];
+    const total      = slides.length;
+
+    // How many slides visible at once depends on viewport
+    function visibleCount() {
+      return window.innerWidth <= 600 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    }
+
+    let current = 0;
+    let vis = visibleCount();
+    const maxIndex = () => total - vis;
+
+    // Build dots
+    function buildDots() {
+      if (!dotsWrap) return;
+      dotsWrap.innerHTML = '';
+      const numDots = maxIndex() + 1;
+      for (let i = 0; i <= maxIndex(); i++) {
+        const d = document.createElement('button');
+        d.className = 'slider-dot' + (i === current ? ' active' : '');
+        d.setAttribute('role', 'tab');
+        d.setAttribute('aria-label', `Go to slide group ${i+1}`);
+        d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+        d.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    function updateDots() {
+      if (!dotsWrap) return;
+      dotsWrap.querySelectorAll('.slider-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+        d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+      });
+    }
+
+    function updateCounter() {
+      if (counter) counter.textContent = (current + 1) + ' / ' + (maxIndex() + 1);
+    }
+
+    function goTo(n) {
+      vis = visibleCount();
+      current = Math.max(0, Math.min(n, maxIndex()));
+      const pct = (100 / vis) * current;
+      track.style.transform = `translateX(-${pct}%)`;
+      updateDots();
+      updateCounter();
+    }
+
+    if (total > 0) {
+      buildDots();
+      updateCounter();
+      prevBtn && prevBtn.addEventListener('click', () => goTo(current - 1));
+      nextBtn && nextBtn.addEventListener('click', () => goTo(current + 1));
+
+      // Auto-advance
+      let auto = setInterval(() => goTo(current + 1 > maxIndex() ? 0 : current + 1), 4000);
+      track.parentElement.addEventListener('mouseenter', () => clearInterval(auto));
+      track.parentElement.addEventListener('mouseleave', () => {
+        auto = setInterval(() => goTo(current + 1 > maxIndex() ? 0 : current + 1), 4000);
+      });
+
+      // Touch swipe
+      let startX = 0;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+      }, { passive: true });
+
+      window.addEventListener('resize', () => {
+        buildDots();
+        goTo(0);
+      });
+    }
+
+    // ─── Lightbox ───
+    const slides_data = Array.from(slides).map(s => ({
+      src: s.querySelector('img').src,
+      alt: s.querySelector('img').alt,
+      label: s.querySelector('.portfolio-slide-label') ? s.querySelector('.portfolio-slide-label').textContent : ''
+    }));
+    let lbCurrent = 0;
+    const lb        = document.getElementById('lightbox');
+    const lbImg     = document.getElementById('lightboxImg');
+    const lbCaption = document.getElementById('lightboxCaption');
+    const lbClose   = document.getElementById('lightboxClose');
+    const lbPrev    = document.getElementById('lightboxPrev');
+    const lbNext    = document.getElementById('lightboxNext');
+
+    window.openLightbox = function(idx) {
+      lbCurrent = idx;
+      showLb();
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    function showLb() {
+      if (!lbImg) return;
+      lbImg.src = slides_data[lbCurrent].src;
+      lbImg.alt = slides_data[lbCurrent].alt;
+      if (lbCaption) lbCaption.textContent = slides_data[lbCurrent].label + ' — ' + slides_data[lbCurrent].alt;
+    }
+    function closeLb() {
+      lb && lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    lbClose && lbClose.addEventListener('click', closeLb);
+    lb && lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    lbPrev && lbPrev.addEventListener('click', () => { lbCurrent = (lbCurrent - 1 + slides_data.length) % slides_data.length; showLb(); });
+    lbNext && lbNext.addEventListener('click', () => { lbCurrent = (lbCurrent + 1) % slides_data.length; showLb(); });
+    document.addEventListener('keydown', e => {
+      if (!lb || !lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowLeft') { lbCurrent = (lbCurrent - 1 + slides_data.length) % slides_data.length; showLb(); }
+      if (e.key === 'ArrowRight') { lbCurrent = (lbCurrent + 1) % slides_data.length; showLb(); }
+    });
+  })();
 
   // ─── Smooth Anchor Offset ───
   document.querySelectorAll('a[href^="#"]').forEach(a => {
