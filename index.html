@@ -52,6 +52,21 @@
   <meta name="geo.position" content="5.6037;-0.1870" />
   <meta name="ICBM" content="5.6037, -0.1870" />
 
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID', {
+      'anonymize_ip': true,
+      'cookie_flags': 'SameSite=None;Secure'
+    });
+  </script>
+
+  <!-- Custom Analytics -->
+  <script src="analytics.js" defer></script>
+
   <!-- Schema Markup: Local Business + ContactPoint + Social -->
   <script type="application/ld+json">
   {
