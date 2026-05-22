@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -38,11 +40,8 @@
      gtag('js', new Date());
      gtag('config', 'G-MQ8VQJ3XWY');
    </script>
-    <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <!-- SEO Meta Tags -->
-  <title>Top Video Editing &amp; Website Development in Accra | Kissward Multimedia</title>
+  <title>Video Editing &amp; Website Development in Accra Ghana | Kissward Multimedia</title>
   <link rel="icon" href="kisswardmultimedia-logo.png" type="image/png" />
   <link rel="icon" href="kisswardmultimedia-logo.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="kisswardmultimedia-logo.png" sizes="64x64" type="image/png" />
@@ -57,21 +56,25 @@
   <meta name="author" content="Kissward Multimedia" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://kisswardmultimedia.com/" />
+  <link rel="sitemap" type="application/xml" href="https://kisswardmultimedia.com/sitemap.xml" />
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kisswardmultimedia.com/" />
-  <meta property="og:title" content="Top Video Editing &amp; Website Development in Accra | Kissward Multimedia" />
+  <meta property="og:title" content="Video Editing &amp; Website Development in Accra Ghana | Kissward Multimedia" />
   <meta property="og:description" content="Kissward Multimedia is Accra's premier creative studio offering expert video editing, custom website development, graphic design, and IT support. Elevate your brand today!" />
-  <meta property="og:image" content="og-image.jpg" />
+  <meta property="og:image" content="https://kisswardmultimedia.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_GH" />
   <meta property="og:site_name" content="Kissward Multimedia" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Top Video Editing &amp; Website Development in Accra | Kissward Multimedia" />
+  <meta name="twitter:site" content="@kissward_multimedia" />
+  <meta name="twitter:title" content="Video Editing &amp; Website Development in Accra Ghana | Kissward Multimedia" />
   <meta name="twitter:description" content="Kissward Multimedia is Accra's premier creative studio offering expert video editing, custom website development, graphic design, and IT support. Elevate your brand today!" />
-  <meta name="twitter:image" content="og-image.jpg" />
+  <meta name="twitter:image" content="https://kisswardmultimedia.com/og-image.jpg" />
 
   <!-- Geo Tags for local SEO -->
   <meta name="geo.region" content="GH-AA" />
@@ -82,95 +85,229 @@
   <!-- Custom Analytics -->
   <script src="analytics.js" defer></script>
 
-  <!-- Schema Markup: Local Business + ContactPoint + Social -->
+  <!-- Schema Markup: WebPage + ProfessionalService + Person + Services -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Kissward Multimedia",
-    "description": "Kissward Multimedia is Accra's premier creative studio offering expert video editing, custom website development, graphic design, animation, and IT support. Founded and led by David Kissward — a multimedia expert with over a decade of experience.",
-    "url": "https://kisswardmultimedia.com",
-    "telephone": "+233542603997",
-    "founder": {
-      "@type": "Person",
-      "name": "David Kissward",
-      "jobTitle": "CEO and Founder",
-      "description": "David Kissward is a Ghanaian multimedia professional with over 10 years of expertise in graphic design, corporate branding, website and app development, 2D and 3D animation, motion graphics, and video production.",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Kissward Multimedia"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Accra",
-        "addressRegion": "Greater Accra",
-        "addressCountry": "GH"
-      }
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Accra",
-      "addressRegion": "Greater Accra",
-      "addressCountry": "GH"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 5.6037,
-      "longitude": -0.1870
-    },
-    "contactPoint": [
+    "@graph": [
       {
-        "@type": "ContactPoint",
+        "@type": "WebPage",
+        "@id": "https://kisswardmultimedia.com/#webpage",
+        "url": "https://kisswardmultimedia.com/",
+        "name": "Video Editing & Website Development in Accra Ghana | Kissward Multimedia",
+        "description": "Kissward Multimedia is Accra's premier creative studio offering expert video editing, custom website development, graphic design, animation, and IT support.",
+        "inLanguage": "en-GH",
+        "isPartOf": { "@id": "https://kisswardmultimedia.com/#website" },
+        "about": { "@id": "https://kisswardmultimedia.com/#business" },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kisswardmultimedia.com/" }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://kisswardmultimedia.com/#website",
+        "url": "https://kisswardmultimedia.com/",
+        "name": "Kissward Multimedia",
+        "publisher": { "@id": "https://kisswardmultimedia.com/#business" },
+        "inLanguage": "en-GH",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": { "@type": "EntryPoint", "urlTemplate": "https://kisswardmultimedia.com/?s={search_term_string}" },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://kisswardmultimedia.com/#business",
+        "name": "Kissward Multimedia",
+        "legalName": "Kissward Multimedia",
+        "description": "Kissward Multimedia is Accra's premier creative studio offering expert video editing, custom website development, graphic design, 2D & 3D animation, and IT support. Founded and led by David Kissward — a multimedia expert with over a decade of experience.",
+        "url": "https://kisswardmultimedia.com",
         "telephone": "+233542603997",
-        "contactType": "customer service",
-        "contactOption": "TollFree",
-        "availableLanguage": "English"
-      }
-    ],
-    "sameAs": [
-      "https://www.facebook.com/kisswardmultimedia/",
-      "https://gh.linkedin.com/in/kissward-multimedia-013577100",
-      "https://www.instagram.com/kissward_multimedia/",
-      "https://www.youtube.com/channel/UCmpxMdGXnjHgvd2RolSsZrQ",
-      "https://www.tiktok.com/@kissward_multimedia",
-      "https://share.google/R9bE4GhUeLKRMRv5g"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Multimedia Services",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Video Editing Services in Ghana" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Graphic Design & Branding" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Animation & Motion Graphics" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT Support & PC Repairs" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Content Creation & Social Media Management" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "App Development Ghana" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Branding Ghana" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "2D & 3D Animation Ghana" } }
-      ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "47",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Ama Owusu" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Kissward Multimedia built our company website and it exceeded every expectation. Fast, professional, and very responsive throughout the entire process.",
-        "datePublished": "2025-11-10"
+        "email": "kisswardmultimedia@gmail.com",
+        "priceRange": "$$",
+        "currenciesAccepted": "GHS",
+        "paymentAccepted": "Cash, Mobile Money, Bank Transfer",
+        "openingHours": "Mo-Fr 08:00-18:00",
+        "image": "https://kisswardmultimedia.com/kisswardmultimedia-logo.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://kisswardmultimedia.com/kisswardmultimedia-logo.png",
+          "width": 400,
+          "height": 400
+        },
+        "founder": { "@id": "https://kisswardmultimedia.com/#founder" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Accra",
+          "addressLocality": "Accra",
+          "addressRegion": "Greater Accra",
+          "postalCode": "GA",
+          "addressCountry": "GH"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 5.6037,
+          "longitude": -0.1870
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Accra" },
+          { "@type": "AdministrativeArea", "name": "Greater Accra" },
+          { "@type": "Country", "name": "Ghana" }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+233542603997",
+          "contactType": "customer service",
+          "availableLanguage": ["English"],
+          "contactOption": "TollFree"
+        },
+        "sameAs": [
+          "https://www.facebook.com/kisswardmultimedia/",
+          "https://gh.linkedin.com/in/kissward-multimedia-013577100",
+          "https://www.instagram.com/kissward_multimedia/",
+          "https://www.youtube.com/channel/UCmpxMdGXnjHgvd2RolSsZrQ",
+          "https://www.tiktok.com/@kissward_multimedia",
+          "https://share.google/R9bE4GhUeLKRMRv5g"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Multimedia Services — Accra, Ghana",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://kisswardmultimedia.com/#service-video",
+                "name": "Video Editing Services in Ghana",
+                "description": "Professional video editing in Accra — commercials, events, weddings, social media campaigns. Includes colour grading, motion titles, and cinematic storytelling.",
+                "areaServed": { "@type": "Country", "name": "Ghana" },
+                "provider": { "@id": "https://kisswardmultimedia.com/#business" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://kisswardmultimedia.com/#service-web",
+                "name": "Website Development in Accra Ghana",
+                "description": "Custom websites, web apps, and e-commerce platforms for businesses in Accra and across Ghana. High-performing, mobile-responsive, and SEO-optimised.",
+                "areaServed": { "@type": "Country", "name": "Ghana" },
+                "provider": { "@id": "https://kisswardmultimedia.com/#business" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://kisswardmultimedia.com/#service-design",
+                "name": "Graphic Design & Branding in Ghana",
+                "description": "Logos, packaging, flyers, and complete brand identity systems for Ghanaian businesses. Serving Accra and nationwide.",
+                "areaServed": { "@type": "Country", "name": "Ghana" },
+                "provider": { "@id": "https://kisswardmultimedia.com/#business" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://kisswardmultimedia.com/#service-animation",
+                "name": "2D & 3D Animation and Motion Graphics Ghana",
+                "description": "Explainer videos, 2D & 3D animation, and motion graphics for brands and creatives across Ghana.",
+                "areaServed": { "@type": "Country", "name": "Ghana" },
+                "provider": { "@id": "https://kisswardmultimedia.com/#business" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://kisswardmultimedia.com/#service-it",
+                "name": "IT Support & PC Repairs Accra",
+                "description": "Fast and reliable IT support, PC repair, and technical assistance for businesses and individuals in Accra, Ghana.",
+                "areaServed": { "@type": "City", "name": "Accra" },
+                "provider": { "@id": "https://kisswardmultimedia.com/#business" }
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://kisswardmultimedia.com/#service-social",
+                "name": "Social Media Management & Content Creation Ghana",
+                "description": "Content strategy, copywriting, and social media management for Instagram, TikTok, Facebook, and YouTube in Ghana.",
+                "areaServed": { "@type": "Country", "name": "Ghana" },
+                "provider": { "@id": "https://kisswardmultimedia.com/#business" }
+              }
+            }
+          ]
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5.0",
+          "reviewCount": "47",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Ama Owusu" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Kissward Multimedia built our company website and it exceeded every expectation. Fast, professional, and very responsive throughout the entire process.",
+            "datePublished": "2025-11-10"
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Kofi Mensah" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Their video editing work transformed our brand content. The quality and turnaround time are unmatched in Accra.",
+            "datePublished": "2025-12-02"
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Efua Sarpong" },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "I needed a full brand identity and Kissward delivered everything in record time. The creativity is genuinely world-class for Ghanaian standards.",
+            "datePublished": "2026-01-14"
+          }
+        ]
       },
       {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Kofi Mensah" },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": "Their video editing work transformed our brand content. The quality and turnaround time are unmatched in Accra.",
-        "datePublished": "2025-12-02"
+        "@type": "Person",
+        "@id": "https://kisswardmultimedia.com/#founder",
+        "name": "David Kissward",
+        "givenName": "David",
+        "familyName": "Kissward",
+        "jobTitle": "CEO and Founder",
+        "description": "David Kissward is a Ghanaian multimedia professional with over 10 years of expertise in graphic design, corporate branding, website and app development, 2D and 3D animation, motion graphics, and video production.",
+        "worksFor": { "@id": "https://kisswardmultimedia.com/#business" },
+        "url": "https://kisswardmultimedia.com/#about",
+        "image": "https://kisswardmultimedia.com/David Kissward.jpeg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Accra",
+          "addressRegion": "Greater Accra",
+          "addressCountry": "GH"
+        },
+        "sameAs": [
+          "https://gh.linkedin.com/in/kissward-multimedia-013577100",
+          "https://www.instagram.com/kissward_multimedia/",
+          "https://www.facebook.com/kisswardmultimedia/"
+        ],
+        "knowsAbout": [
+          "Video Editing",
+          "Website Development",
+          "Graphic Design",
+          "2D Animation",
+          "3D Animation",
+          "Motion Graphics",
+          "Corporate Branding",
+          "IT Support"
+        ]
       }
     ]
   }
@@ -2269,50 +2406,50 @@
   <div class="container">
     <div class="reveal" style="text-align:center">
       <span class="section-tag">What We Do</span>
-      <h2 id="services-heading" class="section-title">Our <span class="gold">Services</span></h2>
-      <p class="section-subtitle" style="margin: 0 auto 0">Professional multimedia services in Ghana tailored for businesses, brands, and creators.</p>
+      <h2 id="services-heading" class="section-title">Multimedia Services <span class="gold">in Accra, Ghana</span></h2>
+      <p class="section-subtitle" style="margin: 0 auto 0">Professional multimedia services in Ghana — video editing, web development, design, animation, and IT support tailored for businesses and creators.</p>
     </div>
     <div class="services-grid" role="list">
 
-      <article class="service-card reveal reveal-delay-1" role="listitem">
+      <article class="service-card reveal reveal-delay-1" role="listitem" itemscope itemtype="https://schema.org/Service">
         <div class="service-icon" aria-hidden="true">🎬</div>
-        <h3 class="service-name">Video Editing Services in Ghana</h3>
-        <p class="service-desc">High-quality editing for commercials, events, weddings, and social media campaigns. Color grading, motion titles, and cinematic storytelling.</p>
+        <h3 class="service-name" itemprop="name">Video Editing Services in Accra, Ghana</h3>
+        <p class="service-desc" itemprop="description">Professional video editing for commercials, events, weddings, and social media in Ghana. Colour grading, motion titles, and cinematic storytelling that elevates your brand.</p>
         <div class="service-arrow" aria-hidden="true">→</div>
       </article>
 
-      <article class="service-card reveal reveal-delay-2" role="listitem">
+      <article class="service-card reveal reveal-delay-2" role="listitem" itemscope itemtype="https://schema.org/Service">
         <div class="service-icon" aria-hidden="true">💻</div>
-        <h3 class="service-name">Website Development</h3>
-        <p class="service-desc">Custom websites, web apps, and e-commerce platforms. High-performing, responsive, and SEO-optimized digital experiences tailored to your brand.</p>
+        <h3 class="service-name" itemprop="name">Website Development in Accra, Ghana</h3>
+        <p class="service-desc" itemprop="description">Custom websites, web apps, and e-commerce platforms for Ghanaian businesses. High-performing, mobile-responsive, and built for search visibility from day one.</p>
         <div class="service-arrow" aria-hidden="true">→</div>
       </article>
 
-      <article class="service-card reveal reveal-delay-3" role="listitem">
+      <article class="service-card reveal reveal-delay-3" role="listitem" itemscope itemtype="https://schema.org/Service">
         <div class="service-icon" aria-hidden="true">🎨</div>
-        <h3 class="service-name">Graphic Design &amp; Branding Ghana</h3>
-        <p class="service-desc">Logos, packaging, flyers, and digital marketing assets that elevate your brand identity and resonate with your target audience.</p>
+        <h3 class="service-name" itemprop="name">Graphic Design &amp; Branding in Ghana</h3>
+        <p class="service-desc" itemprop="description">Logos, packaging, flyers, and digital marketing assets crafted for Ghanaian brands. Complete identity systems that make your business impossible to ignore.</p>
         <div class="service-arrow" aria-hidden="true">→</div>
       </article>
 
-      <article class="service-card reveal reveal-delay-1" role="listitem">
+      <article class="service-card reveal reveal-delay-1" role="listitem" itemscope itemtype="https://schema.org/Service">
         <div class="service-icon" aria-hidden="true">✨</div>
-        <h3 class="service-name">Animation &amp; Motion Graphics</h3>
-        <p class="service-desc">Engaging explainer videos, 2D animations, and creative motion graphics that make your message unforgettable and shareable.</p>
+        <h3 class="service-name" itemprop="name">2D &amp; 3D Animation in Ghana</h3>
+        <p class="service-desc" itemprop="description">Engaging explainer videos, 2D &amp; 3D animations, and motion graphics for Ghanaian brands and content creators. Make your message unforgettable and shareable.</p>
         <div class="service-arrow" aria-hidden="true">→</div>
       </article>
 
-      <article class="service-card reveal reveal-delay-2" role="listitem">
-        <div class="service-icon" aria-hidden="true">💻</div>
-        <h3 class="service-name">IT Support &amp; PC Repairs</h3>
-        <p class="service-desc">Reliable technical assistance and PC repair services for businesses and individuals in Accra. Fast turnarounds and dependable solutions.</p>
+      <article class="service-card reveal reveal-delay-2" role="listitem" itemscope itemtype="https://schema.org/Service">
+        <div class="service-icon" aria-hidden="true">🖥️</div>
+        <h3 class="service-name" itemprop="name">IT Support &amp; PC Repairs in Accra</h3>
+        <p class="service-desc" itemprop="description">Reliable IT support and fast PC repair services for businesses and individuals across Accra. Same-day diagnostics, hardware repairs, and software solutions.</p>
         <div class="service-arrow" aria-hidden="true">→</div>
       </article>
 
-      <article class="service-card reveal reveal-delay-3" role="listitem">
+      <article class="service-card reveal reveal-delay-3" role="listitem" itemscope itemtype="https://schema.org/Service">
         <div class="service-icon" aria-hidden="true">📱</div>
-        <h3 class="service-name">Content Creation &amp; Social Media</h3>
-        <p class="service-desc">Captivating scripts, captions, and posts optimized for engagement across Instagram, TikTok, Facebook, and YouTube. Grow your audience.</p>
+        <h3 class="service-name" itemprop="name">Social Media &amp; Content Creation Ghana</h3>
+        <p class="service-desc" itemprop="description">Content strategy, scripts, and posts optimised for Instagram, TikTok, Facebook, and YouTube in Ghana. Grow a real, engaged local audience fast.</p>
         <div class="service-arrow" aria-hidden="true">→</div>
       </article>
 
@@ -2931,18 +3068,17 @@
       <div class="footer-divider" role="separator"></div>
       <div class="footer-bottom">
         <p class="footer-copy">© 2026 Kissward Multimedia. All rights reserved. · Accra, Ghana · <a href="tel:+233542603997" style="color:var(--gold);text-decoration:none">+233542603997</a></p>
-        <div class="footer-badges" aria-label="Service badges">
-          <span class="badge-pill">Video Editing Ghana</span>
-          <span class="badge-pill">Website Development</span>
-          <span class="badge-pill">Graphic Design GH</span>
+        <div class="footer-badges" aria-label="Service keywords">
+          <a href="#services" class="badge-pill" style="text-decoration:none;color:inherit;">Video Editing Ghana</a>
+          <a href="#services" class="badge-pill" style="text-decoration:none;color:inherit;">Website Development Accra</a>
+          <a href="#services" class="badge-pill" style="text-decoration:none;color:inherit;">Graphic Design Ghana</a>
+          <a href="#services" class="badge-pill" style="text-decoration:none;color:inherit;">2D 3D Animation Ghana</a>
+          <a href="#services" class="badge-pill" style="text-decoration:none;color:inherit;">IT Support Accra</a>
         </div>
       </div>
     </div>
   </div>
 </footer>
-
-<!-- Sitemap link for crawlers -->
-<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
 <script>
   // ─── Custom Cursor ───
