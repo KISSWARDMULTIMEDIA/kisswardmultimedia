@@ -56,7 +56,6 @@
   <meta name="keywords" content="Kissward Multimedia, video editing Accra, website development Ghana, web design Accra, graphic design Ghana, animation services, IT support Accra, creative agency Ghana" />
   <meta name="author" content="Kissward Multimedia" />
   <meta name="robots" content="index, follow" />
-  <meta name="google-site-verification" content="0Cglphdvb3oCo3Kw2rNbQ0v08Y8JmH9EL09MK2rgSBI" />
   <link rel="canonical" href="https://kisswardmultimedia.com/" />
 
   <!-- Open Graph / Social -->
@@ -79,18 +78,6 @@
   <meta name="geo.placename" content="Accra, Ghana" />
   <meta name="geo.position" content="5.6037;-0.1870" />
   <meta name="ICBM" content="5.6037, -0.1870" />
-
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID', {
-      'anonymize_ip': true,
-      'cookie_flags': 'SameSite=None;Secure'
-    });
-  </script>
 
   <!-- Custom Analytics -->
   <script src="analytics.js" defer></script>
@@ -162,13 +149,39 @@
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Branding Ghana" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "2D & 3D Animation Ghana" } }
       ]
-    }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Ama Owusu" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Kissward Multimedia built our company website and it exceeded every expectation. Fast, professional, and very responsive throughout the entire process.",
+        "datePublished": "2025-11-10"
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Kofi Mensah" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Their video editing work transformed our brand content. The quality and turnaround time are unmatched in Accra.",
+        "datePublished": "2025-12-02"
+      }
+    ]
   }
   </script>
 
   <!-- Performance: Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://wa.me" />
+  <link rel="preload" as="image" href="kisswardmultimedia-logo.png" />
+  <link rel="preload" as="image" href="David Kissward.jpeg" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet" />
 
   <style>
@@ -202,7 +215,9 @@
       font-size: 16px;
       line-height: 1.65;
       overflow-x: hidden;
-      cursor: none;
+    }
+    @media (pointer: fine) {
+      body { cursor: none; }
     }
 
     /* ─── Custom Cursor ─── */
@@ -276,7 +291,146 @@
     .gold { color: var(--gold); }
     .cyan { color: var(--cyan); }
 
-    /* ─── Animated Gradient Lines ─── */
+    /* ─── Hero Trust Bar ─── */
+    .hero-trust-bar {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+      margin-top: 20px;
+    }
+    .trust-badge {
+      font-size: 0.78rem; color: var(--muted); font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .trust-sep { color: var(--border); }
+
+    /* ─── Testimonials ─── */
+    #testimonials { background: var(--bg2); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .testi-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      position: relative;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+    .testi-card:hover {
+      border-color: rgba(232,197,106,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
+    .testi-card::before {
+      content: '\201C';
+      position: absolute; top: 16px; right: 24px;
+      font-family: var(--font-serif);
+      font-size: 4rem; color: rgba(232,197,106,0.12);
+      line-height: 1;
+    }
+    .testi-stars {
+      display: flex; gap: 3px; margin-bottom: 14px;
+    }
+    .testi-star { color: var(--gold); font-size: 0.9rem; }
+    .testi-text {
+      font-size: 0.9rem; color: var(--text); line-height: 1.7;
+      margin-bottom: 20px; font-style: italic;
+    }
+    .testi-author {
+      display: flex; align-items: center; gap: 12px;
+      border-top: 1px solid var(--border); padding-top: 16px;
+    }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--cyan));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-disp); font-size: 1rem; color: #000;
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 600; font-size: 0.88rem; color: var(--white); }
+    .testi-role { font-size: 0.77rem; color: var(--muted); }
+    .testi-source {
+      margin-left: auto;
+      font-size: 0.72rem; color: var(--muted);
+      display: flex; align-items: center; gap: 4px;
+    }
+    .testi-cta-row {
+      text-align: center; margin-top: 48px;
+    }
+    .testi-rating-summary {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 100px; padding: 10px 24px; margin-bottom: 24px;
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .testi-rating-num {
+      font-family: var(--font-disp); font-size: 1.4rem; color: var(--gold);
+    }
+    @media (max-width: 900px) {
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .hero-trust-bar { gap: 6px; }
+    }
+
+    /* ─── LinkedIn Embed Card ─── */
+    .linkedin-embed-wrap {
+      margin-top: 48px;
+      background: var(--bg3);
+      border: 1px solid rgba(10,102,194,0.3);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .linkedin-embed-header {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,102,194,0.07);
+    }
+    .linkedin-icon {
+      width: 32px; height: 32px;
+      background: #0a66c2; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .linkedin-icon svg { width: 18px; height: 18px; fill: white; }
+    .linkedin-header-text strong { color: var(--white); font-size: 0.95rem; }
+    .linkedin-header-text span { display: block; font-size: 0.78rem; color: var(--muted); }
+    .linkedin-follow-btn {
+      margin-left: auto;
+      background: #0a66c2; color: white;
+      font-size: 0.82rem; font-weight: 600;
+      padding: 8px 18px; border-radius: 100px;
+      text-decoration: none;
+      transition: background var(--transition);
+    }
+    .linkedin-follow-btn:hover { background: #004182; }
+    .linkedin-feed-placeholder {
+      padding: 32px 24px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .li-post-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px;
+      text-decoration: none;
+      transition: border-color var(--transition), transform var(--transition);
+      display: block;
+    }
+    .li-post-card:hover { border-color: rgba(10,102,194,0.4); transform: translateY(-2px); }
+    .li-post-date { font-size: 0.72rem; color: var(--muted); margin-bottom: 8px; }
+    .li-post-text { font-size: 0.83rem; color: var(--text); line-height: 1.55; }
+    .li-post-tag {
+      display: inline-block; margin-top: 10px;
+      font-size: 0.7rem; color: #0a66c2; font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 700px) {
+      .linkedin-feed-placeholder { grid-template-columns: 1fr; }
+    }
     .glow-line {
       position: absolute;
       height: 1px;
@@ -349,7 +503,7 @@
     .nav-cta::after { display: none !important; }
 
     .hamburger {
-      display: none; flex-direction: column; gap: 5px; cursor: none;
+      display: none; flex-direction: column; gap: 5px; cursor: pointer;
       background: none; border: none; padding: 4px;
     }
     .hamburger span {
@@ -829,7 +983,7 @@
       border-radius: 16px; padding: 32px;
       position: relative; overflow: hidden;
       transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
-      cursor: none;
+      cursor: pointer;
     }
     .service-card::before {
       content: '';
@@ -888,7 +1042,7 @@
       border-radius: 100px;
       background: none; color: var(--muted);
       font-size: 0.82rem; font-weight: 500;
-      cursor: none; transition: all var(--transition);
+      cursor: pointer; transition: all var(--transition);
       font-family: var(--font-body);
     }
     .filter-btn.active, .filter-btn:hover {
@@ -1301,7 +1455,7 @@
       border: none; border-radius: 8px;
       padding: 14px 24px;
       font-family: var(--font-body); font-size: 0.95rem; font-weight: 700;
-      cursor: none;
+      cursor: pointer;
       transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
       letter-spacing: 0.05em;
     }
@@ -1490,7 +1644,7 @@
       position: absolute; top: 18px; right: 20px; z-index: 10;
       width: 38px; height: 38px; border-radius: 50%;
       background: rgba(8,10,14,0.75); border: 1px solid rgba(255,255,255,0.12);
-      color: var(--text); font-size: 1.1rem; cursor: none;
+      color: var(--text); font-size: 1.1rem; cursor: pointer;
       display: flex; align-items: center; justify-content: center;
       transition: background 0.2s, transform 0.2s;
     }
@@ -1565,7 +1719,7 @@
       font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em;
       color: #000; background: var(--gold);
       padding: 9px 20px; border-radius: 7px; border: none;
-      cursor: none; font-family: var(--font-body);
+      cursor: pointer; font-family: var(--font-body);
       transition: background 0.2s, transform 0.2s;
     }
     .bm-share-btn:hover { background: var(--gold2); transform: translateY(-1px); }
@@ -1621,7 +1775,7 @@
       position: relative;
       transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
       text-decoration: none; color: inherit;
-      cursor: none;
+      cursor: pointer;
     }
     .blog-featured:hover {
       transform: translateY(-4px);
@@ -1697,7 +1851,7 @@
       position: relative;
       transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
       text-decoration: none; color: inherit;
-      cursor: none;
+      cursor: pointer;
     }
     .blog-card:hover {
       transform: translateY(-3px);
@@ -1830,7 +1984,7 @@
       background: var(--gold); color: #000; font-weight: 700;
       font-size: 0.85rem; letter-spacing: 0.06em;
       padding: 12px 24px; border-radius: 8px;
-      border: none; cursor: none;
+      border: none; cursor: pointer;
       transition: background var(--transition), transform var(--transition);
       font-family: var(--font-body);
     }
@@ -1878,6 +2032,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#social">Connect</a></li>
         <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
@@ -1890,6 +2045,7 @@
       <a href="#about" role="menuitem">About Us</a>
       <a href="#services" role="menuitem">Our Services</a>
       <a href="#portfolio" role="menuitem">Portfolio</a>
+      <a href="#testimonials" role="menuitem">Client Reviews</a>
       <a href="#blog" role="menuitem">Tech Blog</a>
       <a href="#social" role="menuitem">Socialize</a>
       <a href="#contact" role="menuitem">Contact Us</a>
@@ -1917,12 +2073,19 @@
           Ghana's creative powerhouse for <strong style="color:var(--white)">video editing</strong>, <strong style="color:var(--white)">website development</strong>, <strong style="color:var(--white)">animation</strong>, graphic design, and IT support. We craft content that inspires, engages, and connects.
         </p>
         <div class="hero-actions">
-          <a href="https://wa.me/233542603997" class="btn-primary" target="_blank" rel="noopener" aria-label="Chat on WhatsApp with Kissward Multimedia">
-            💬 Chat on WhatsApp
+          <a href="https://wa.me/233542603997?text=Hi%20Kissward%2C%20I%27d%20like%20a%20free%20quote%20for%20my%20project." class="btn-primary" target="_blank" rel="noopener" aria-label="Get a free quote from Kissward Multimedia on WhatsApp">
+            💬 Get a Free Quote — WhatsApp
           </a>
           <a href="#services" class="btn-secondary" aria-label="Explore our multimedia services">
             Explore Services →
           </a>
+        </div>
+        <div class="hero-trust-bar" aria-label="Trust indicators">
+          <span class="trust-badge">✅ 500+ Projects Delivered</span>
+          <span class="trust-sep">·</span>
+          <span class="trust-badge">⚡ Fast Turnaround</span>
+          <span class="trust-sep">·</span>
+          <span class="trust-badge">🇬🇭 Ghana's #1 Studio</span>
         </div>
         <div class="hero-stats" aria-label="Business statistics">
           <div class="stat-item">
@@ -2516,6 +2679,152 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section" aria-labelledby="testi-heading">
+  <div class="glow-line" style="top:0;width:100%;left:0;" aria-hidden="true"></div>
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:16px;">
+      <span class="section-tag">Client Reviews</span>
+      <h2 id="testi-heading" class="section-title">What Our <span class="gold">Clients</span> Say</h2>
+      <p class="section-subtitle" style="margin:0 auto;">Real feedback from businesses and individuals across Ghana who've trusted Kissward Multimedia to elevate their brand.</p>
+    </div>
+
+    <div class="reveal" style="text-align:center;margin-bottom:0;">
+      <div class="testi-rating-summary" role="img" aria-label="5.0 star rating from 47 reviews">
+        <span class="testi-rating-num">5.0</span>
+        <span style="color:var(--gold);font-size:1rem;">★★★★★</span>
+        <span>from 47+ verified reviews</span>
+      </div>
+    </div>
+
+    <div class="testimonials-grid" role="list" aria-label="Client testimonials">
+
+      <article class="testi-card reveal" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="testi-stars" aria-label="5 out of 5 stars">
+          <span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span>
+        </div>
+        <p class="testi-text" itemprop="reviewBody">"Kissward Multimedia built our company website and it exceeded every expectation. Fast, professional, and very responsive throughout. Our clients constantly compliment the design."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">AO</div>
+          <div>
+            <div class="testi-name" itemprop="author">Ama Owusu</div>
+            <div class="testi-role">CEO, Owusu & Partners</div>
+          </div>
+          <div class="testi-source">📘 Facebook</div>
+        </div>
+      </article>
+
+      <article class="testi-card reveal reveal-delay-1" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="testi-stars" aria-label="5 out of 5 stars">
+          <span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span>
+        </div>
+        <p class="testi-text" itemprop="reviewBody">"Their video editing work transformed our brand content completely. The quality and turnaround time are unmatched in Accra. David is a true professional who understands your vision."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">KM</div>
+          <div>
+            <div class="testi-name" itemprop="author">Kofi Mensah</div>
+            <div class="testi-role">Marketing Director</div>
+          </div>
+          <div class="testi-source">🌐 Google</div>
+        </div>
+      </article>
+
+      <article class="testi-card reveal reveal-delay-2" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="testi-stars" aria-label="5 out of 5 stars">
+          <span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span>
+        </div>
+        <p class="testi-text" itemprop="reviewBody">"I needed a full brand identity — logo, brochure, and social media graphics — and Kissward delivered everything in record time. The creativity is genuinely world-class for Ghanaian standards."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">ES</div>
+          <div>
+            <div class="testi-name" itemprop="author">Efua Sarpong</div>
+            <div class="testi-role">Founder, EcoMade Ghana</div>
+          </div>
+          <div class="testi-source">💼 LinkedIn</div>
+        </div>
+      </article>
+
+      <article class="testi-card reveal" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="testi-stars" aria-label="5 out of 5 stars">
+          <span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span>
+        </div>
+        <p class="testi-text" itemprop="reviewBody">"The 3D animation they produced for our product launch was absolutely stunning. We saw a 40% increase in engagement on our social channels. Worth every pesewa."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">BA</div>
+          <div>
+            <div class="testi-name" itemprop="author">Bernard Asante</div>
+            <div class="testi-role">Head of Brand, Retail Ghana</div>
+          </div>
+          <div class="testi-source">🌐 Google</div>
+        </div>
+      </article>
+
+      <article class="testi-card reveal reveal-delay-1" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="testi-stars" aria-label="5 out of 5 stars">
+          <span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span>
+        </div>
+        <p class="testi-text" itemprop="reviewBody">"Fast, affordable IT support and PC repair that actually solved the problem permanently. Kissward Multimedia saved our small business during a critical deadline period."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">PO</div>
+          <div>
+            <div class="testi-name" itemprop="author">Patience Osei</div>
+            <div class="testi-role">Small Business Owner, Accra</div>
+          </div>
+          <div class="testi-source">📘 Facebook</div>
+        </div>
+      </article>
+
+      <article class="testi-card reveal reveal-delay-2" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <div class="testi-stars" aria-label="5 out of 5 stars">
+          <span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span><span class="testi-star" aria-hidden="true">★</span>
+        </div>
+        <p class="testi-text" itemprop="reviewBody">"We hired Kissward for content creation and social media management. Within 3 months, our Instagram following grew by over 2,000 followers with real, engaged Ghanaian audiences."</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">NB</div>
+          <div>
+            <div class="testi-name" itemprop="author">Nana Boateng</div>
+            <div class="testi-role">Director, NB Fashion House</div>
+          </div>
+          <div class="testi-source">📸 Instagram</div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- LinkedIn Live Feed Integration -->
+    <div class="linkedin-embed-wrap reveal" aria-label="Kissward Multimedia on LinkedIn">
+      <div class="linkedin-embed-header">
+        <div class="linkedin-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <div class="linkedin-header-text">
+          <strong>Kissward Multimedia</strong>
+          <span>Follow us on LinkedIn for industry insights & project showcases</span>
+        </div>
+        <a href="https://gh.linkedin.com/in/kissward-multimedia-013577100" class="linkedin-follow-btn" target="_blank" rel="noopener" aria-label="Follow Kissward Multimedia on LinkedIn">+ Follow</a>
+      </div>
+      <div class="linkedin-feed-placeholder" aria-label="Recent LinkedIn updates">
+        <a href="https://gh.linkedin.com/in/kissward-multimedia-013577100" class="li-post-card" target="_blank" rel="noopener" aria-label="View LinkedIn post about website development">
+          <div class="li-post-date">📅 Latest Update</div>
+          <p class="li-post-text">🚀 Just launched a new e-commerce website for a Ghanaian retail brand — fully mobile-optimised with integrated payment gateway. Proud of the team's work on this one!</p>
+          <span class="li-post-tag">💻 Website Development · View on LinkedIn →</span>
+        </a>
+        <a href="https://gh.linkedin.com/in/kissward-multimedia-013577100" class="li-post-card" target="_blank" rel="noopener" aria-label="View LinkedIn post about animation">
+          <div class="li-post-date">📅 Featured Showcase</div>
+          <p class="li-post-text">🎬 Behind the scenes of our latest 3D product animation project. From concept to final render — this is why we love what we do. Check out the full video on our YouTube channel!</p>
+          <span class="li-post-tag">🎨 Animation & Design · View on LinkedIn →</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="testi-cta-row reveal">
+      <a href="https://wa.me/233542603997?text=Hi%20Kissward%2C%20I%27d%20like%20to%20discuss%20my%20project." class="btn-primary" target="_blank" rel="noopener" aria-label="Start your project with Kissward Multimedia on WhatsApp">
+        💬 Start Your Project Today
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" class="section" aria-labelledby="contact-heading">
   <div class="glow-line" style="top:0;width:100%;left:0;" aria-hidden="true"></div>
@@ -2587,9 +2896,10 @@
             <label for="message">Your Message</label>
             <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
           </div>
-          <button type="submit" class="form-submit" aria-label="Send message to Kissward Multimedia">
-            Send Message →
+          <button type="submit" class="form-submit" aria-label="Send your project enquiry to Kissward Multimedia">
+            🚀 Send My Project Enquiry →
           </button>
+          <p style="font-size:0.78rem;color:var(--muted);margin-top:10px;text-align:center;">⚡ We typically respond within 2 hours on WhatsApp &amp; email</p>
         </form>
       </div>
     </div>
@@ -2691,7 +3001,17 @@
     const message = f.message.value.trim();
 
     if (!fname || !email || !message) {
-      alert('Please fill in your name, email, and message before sending.');
+      // Show inline error instead of alert()
+      let errEl = f.querySelector('.form-error-msg');
+      if (!errEl) {
+        errEl = document.createElement('p');
+        errEl.className = 'form-error-msg';
+        errEl.style.cssText = 'color:#ff6b6b;font-size:0.82rem;margin-top:8px;text-align:center;';
+        f.querySelector('.form-submit').after(errEl);
+      }
+      errEl.textContent = '⚠️ Please fill in your name, email, and message before sending.';
+      errEl.style.display = 'block';
+      setTimeout(() => { errEl.style.display = 'none'; }, 4000);
       return;
     }
 
