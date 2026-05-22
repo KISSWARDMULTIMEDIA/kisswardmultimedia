@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Graph Image Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .og-container {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #080a0e 0%, #1a2332 50%, #0d1117 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .og-overlay {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(232,197,106,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0,212,255,0.05) 0%, transparent 50%);
+        }
+        
+        .og-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            text-align: center;
+        }
+        
+        .og-logo {
+            width: 80px;
+            height: 80px;
+            background: #e8c56a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 24px;
+            color: #080a0e;
+            letter-spacing: 2px;
+        }
+        
+        .og-title {
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            max-width: 900px;
+        }
+        
+        .og-title span {
+            color: #e8c56a;
+        }
+        
+        .og-subtitle {
+            font-size: 24px;
+            color: #7a8899;
+            margin-bottom: 40px;
+            line-height: 1.4;
+            max-width: 800px;
+        }
+        
+        .og-services {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .og-service-tag {
+            background: rgba(232,197,106,0.1);
+            border: 1px solid rgba(232,197,106,0.3);
+            color: #e8c56a;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .og-footer {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #7a8899;
+            font-size: 16px;
+        }
+        
+        .og-website {
+            color: #e8c56a;
+            font-weight: 600;
+        }
+        
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .controls button {
+            background: #e8c56a;
+            color: #080a0e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .controls button:hover {
+            background: #f5d98e;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button onclick="downloadImage()">Download as PNG</button>
+        <div style="font-size: 12px; color: #666; margin-top: 10px;">
+            Use browser's "Save as image" or screenshot tool if download doesn't work
+        </div>
+    </div>
+    
+    <div class="og-container" id="ogImage">
+        <div class="og-overlay"></div>
+        <div class="og-content">
+            <div class="og-logo">KM</div>
+            <h1 class="og-title">KISSWARD <span>MULTIMEDIA</span></h1>
+            <p class="og-subtitle">Top Video Editing & Website Development in Accra</p>
+            <div class="og-services">
+                <span class="og-service-tag">Video Editing</span>
+                <span class="og-service-tag">Web Design</span>
+                <span class="og-service-tag">Graphic Design</span>
+                <span class="og-service-tag">Animation</span>
+                <span class="og-service-tag">IT Support</span>
+            </div>
+        </div>
+        <div class="og-footer">
+            <span class="og-website">kisswardmultimedia.com</span> • Accra, Ghana
+        </div>
+    </div>
+
+    <script>
+        function downloadImage() {
+            // Use html2canvas library if available, otherwise provide instructions
+            alert('To save this as an image:\n1. Take a screenshot of the Open Graph image\n2. Crop to 1200x630 pixels\n3. Save as og-image.jpg\n\nOr use browser developer tools to save as image');
+        }
+        
+        // Alternative: Use Canvas API to create image
+        function createCanvasImage() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 630;
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, 1200, 630);
+            gradient.addColorStop(0, '#080a0e');
+            gradient.addColorStop(0.5, '#1a2332');
+            gradient.addColorStop(1, '#0d1117');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1200, 630);
+            
+            // Add text content
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 56px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('KISSWARD MULTIMEDIA', 600, 250);
+            
+            ctx.fillStyle = '#e8c56a';
+            ctx.fillText('KISSWARD', 600, 250);
+            
+            ctx.fillStyle = '#7a8899';
+            ctx.font = '24px Arial';
+            ctx.fillText('Top Video Editing & Website Development in Accra', 600, 320);
+            
+            // Add logo circle
+            ctx.fillStyle = '#e8c56a';
+            ctx.beginPath();
+            ctx.arc(600, 150, 40, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.fillStyle = '#080a0e';
+            ctx.font = 'bold 24px Arial';
+            ctx.fillText('KM', 600, 160);
+            
+            // Add footer
+            ctx.fillStyle = '#7a8899';
+            ctx.font = '16px Arial';
+            ctx.fillText('kisswardmultimedia.com • Accra, Ghana', 600, 550);
+            
+            // Download the canvas as image
+            const link = document.createElement('a');
+            link.download = 'og-image.jpg';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html>

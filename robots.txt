@@ -1,16 +1,14 @@
-# robots.txt — kisswardmultimedia.com
+# robots.txt — kisswardmultimedia.github.io/kisswardmultimedia
 # Generated: 2026-05-22
 
 User-agent: *
-Allow: /
+Allow: /kisswardmultimedia/
 
-# Block crawling of any future admin or private paths
-Disallow: /admin/
-Disallow: /private/
-Disallow: /analytics.js
+Disallow: /kisswardmultimedia/admin/
+Disallow: /kisswardmultimedia/private/
+Disallow: /kisswardmultimedia/analytics.js
 
-# Sitemap location — submit this URL in Google Search Console too
-Sitemap: https://kisswardmultimedia.com/sitemap.xml
+# Submit this URL in Google Search Console
+Sitemap: https://kisswardmultimedia.github.io/kisswardmultimedia/sitemap.xml
 
-# Crawl-delay: be polite to servers
 Crawl-delay: 1
