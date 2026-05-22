@@ -2848,9 +2848,9 @@
   });
 
   // ─── BLOG ENGINE v2 — Full Article Modal Reader ──────────────────────────────
-  const BLOG_CACHE_KEY = 'km_blog_posts_v5';
-  const BLOG_CACHE_TS  = 'km_blog_ts_v5';
-  const BLOG_TTL_MS    = 22 * 60 * 60 * 1000;
+  const BLOG_CACHE_KEY = 'km_blog_posts_v6';
+  const BLOG_CACHE_TS  = 'km_blog_ts_v6';
+  const BLOG_TTL_MS    = 24 * 60 * 60 * 1000; // Full 24-hour daily refresh
 
   // All posts stored here after load so modal can access them
   let BLOG_POSTS_STORE = [];
@@ -2877,7 +2877,7 @@
     return (str || '').replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
   }
 
-  // Keyword map: pick relevant Unsplash search terms per category + title keywords
+  // Keyword map: per category — used for SVG fallback styling
   const THUMB_KEYWORDS = {
     ai:     ['artificial intelligence','machine learning','neural network','robot','technology','data science','computer','algorithm','futuristic tech'],
     web:    ['web development','coding','programming','software','laptop code','developer','javascript','frontend','website design'],
@@ -2893,16 +2893,13 @@
     return Math.abs(h);
   }
 
-  // Return a real Unsplash image URL for the post
+  // Thumbnail: use Picsum Photos (reliable, no API key, deterministic by seed)
+  // Falls back to generated SVG on error
   function thumbURL(post, w, h) {
-    const cat = post.category || 'ai';
-    const pool = THUMB_KEYWORDS[cat] || THUMB_KEYWORDS.ai;
     const seed = titleSeed(post.title || '');
-    // Pick a keyword deterministically based on title hash
-    const kw = pool[seed % pool.length];
-    // Unsplash Source API — free, no key needed, deterministic via sig param
-    const sig = seed % 1000;
-    return `https://source.unsplash.com/${w}x${h}/?${encodeURIComponent(kw)}&sig=${sig}`;
+    // Picsum uses integer IDs 1–1000; we pick one deterministically per post
+    const id = (seed % 900) + 50; // keep away from edge IDs
+    return `https://picsum.photos/seed/${id}/${w}/${h}`;
   }
 
   // Inline SVG fallback (used as onerror backup)
@@ -3128,7 +3125,17 @@ Write the full article body only — no title, no meta. Use this HTML structure:
 - <blockquote> for notable quotes or key takeaways
 - <code> for code snippets or technical terms
 
-Write approximately 500–700 words. Be specific, practical, and insightful. Reference real tools, frameworks, or techniques from May 2026 where relevant — including recent Google I/O 2026 announcements (Gemini 3.5 Flash, Antigravity 2.0, WebMCP, SynthID), Meta Muse Spark, AI agent security, and the governance shift in AI. End with a brief paragraph connecting the topic to how creative studios like Kissward Multimedia in Ghana can leverage it right now.
+Write approximately 500–700 words. Be specific, practical, and insightful. Reference real tools, frameworks, or techniques from May 2026 where relevant — including:
+- Google I/O 2026: Gemini Omni, Google Antigravity, WebMCP, Universal Cart, SynthID, Android Halo, Gemini in Chrome DevTools
+- Adobe/Canva/CapCut Gemini integrations
+- Microsoft Agent 365 and enterprise AI governance
+- Meta Muse Spark and Instagram agentic shopping
+- Claude Code multi-agent coordination (Anthropic)
+- Cursor 3 Agents Window for autonomous coding
+- GitHub supply-chain attack by TeamPCP (security awareness)
+- AI governance and accountability becoming board-level priority
+
+End with a brief paragraph connecting the topic to how creative studios like Kissward Multimedia in Ghana can leverage it right now.
 
 Output clean HTML only — no markdown, no wrapper tags, no preamble.`;
 
@@ -3154,14 +3161,40 @@ Output clean HTML only — no markdown, no wrapper tags, no preamble.`;
     const today = new Date().toISOString().split('T')[0];
     const prompt = `You are a tech blog curator for Kissward Multimedia, a creative multimedia studio in Accra, Ghana.
 
-Generate exactly 6 blog post cards for today (${today}). Cover these topic areas: AI tools & LLMs, modern web development, graphic/UI design, developer tools & productivity, and major software updates.
+Generate exactly 6 blog post cards for today (${today}). Cover AI tools, web development, design, developer tools, and software updates — always from the lens of creatives and digital professionals in Ghana and across Africa.
 
-IMPORTANT: Reference the most current AI and tech developments of May 2026. Key stories to draw from: Google I/O 2026 (Gemini 3.5 Flash, Gemini Omni, Antigravity 2.0, WebMCP, Android Halo, SynthID expanding to OpenAI/ElevenLabs), Meta Muse Spark agentic AI and Instagram shopping agents, OpenAI B2B Signals enterprise tracker, AI agent prompt injection security threats, and the industry shift toward AI governance and accountability. Also cover modern web dev with browser-native AI and agentic workflows. Be punchy, specific, and connect stories to opportunities for creatives in Ghana and across Africa.
+CRITICAL: You must reflect the absolute latest AI and tech news as of ${today}. Prioritise stories that broke in the last 7 days. Key headlines to draw from for May 2026:
 
-Respond ONLY with a JSON array — no markdown fences, no explanation, no preamble. Exact format:
-[{"title":"…","excerpt":"3-4 engaging sentences. Mention specific tools/frameworks.","category":"ai","date":"${today}"},{"title":"…","excerpt":"…","category":"web","date":"${today}"},{"title":"…","excerpt":"…","category":"design","date":"${today}"},{"title":"…","excerpt":"…","category":"tools","date":"${today}"},{"title":"…","excerpt":"…","category":"update","date":"${today}"},{"title":"…","excerpt":"…","category":"ai","date":"${today}"}]
+GOOGLE I/O 2026 (May 20–21, 2026):
+- Gemini Omni: Google's new flagship multimodal model (any input → any output including video)
+- Google Antigravity: new agentic developer platform with sub-agent orchestration, standalone desktop app, Android vibe coding in AI Studio
+- WebMCP: browser-native protocol letting AI agents interact with websites without screen-scraping
+- Universal Cart: AI-powered cross-site shopping aggregator inside Google Search
+- SynthID watermarking now adopted by OpenAI, Kakao, ElevenLabs — industry content-provenance standard
+- Google Beam: holographic video calling device
+- Fitbit Air: health-tracking smart ring
+- Android Halo: new Android AI layer with on-device Gemini Nano 4
+- Gemini in Chrome DevTools with Lighthouse integration
+- Adobe, Canva, CapCut announce Gemini integrations for image/video editing
 
-Category values: "ai", "web", "design", "tools", "update". Post 1 must be the most compelling featured story with a 4-sentence excerpt.`;
+OTHER MAY 2026 NEWS:
+- Microsoft Agent 365: enterprise AI agent governance platform ($15/user/month)
+- Meta Muse Spark: personalised agentic AI completing tasks across apps; Instagram agentic shopping agents
+- Claude Code rate limits doubled, multi-agent coordination added; Anthropic at $900B valuation
+- OpenAI hits $25B ARR; xAI (Grok) being dissolved into SpaceXAI
+- Cursor 3 + Agents Window: autonomous coding agents
+- GitHub supply chain attacks (500+ packages compromised by TeamPCP)
+- AI governance and autonomous AI security becoming board-level priority
+- Qwen3.6 by Alibaba: new open-weight frontier model
+- NASA testing radiation-hardened AI chip for autonomous spacecraft
+- L'Oréal deploying generative AI across all marketing workflows globally
+
+Write punchy, specific, opinionated posts. Connect each story to opportunities or risks for creatives, studios, and developers in Ghana and Africa.
+
+Respond ONLY with a JSON array — no markdown, no explanation, no preamble. Exact format:
+[{"title":"…","excerpt":"3-4 engaging sentences. Mention specific tools/versions.","category":"ai","date":"${today}"},{"title":"…","excerpt":"…","category":"web","date":"${today}"},{"title":"…","excerpt":"…","category":"design","date":"${today}"},{"title":"…","excerpt":"…","category":"tools","date":"${today}"},{"title":"…","excerpt":"…","category":"update","date":"${today}"},{"title":"…","excerpt":"…","category":"ai","date":"${today}"}]
+
+Category values: "ai", "web", "design", "tools", "update". Post 1 must be the most compelling featured story with a 4-sentence excerpt. Make each title punchy and SEO-friendly.`;
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -3214,12 +3247,12 @@ Category values: "ai", "web", "design", "tools", "update". Post 1 must be the mo
       console.warn('Blog load error:', err);
       const today = new Date().toISOString().split('T')[0];
       const fallback = [
-        { title: "Google I/O 2026: Gemini 3.5 Flash & the Agentic AI Era Explained", excerpt: "Google I/O 2026 just redefined the AI landscape. Sundar Pichai unveiled Gemini 3.5 Flash — a frontier-intelligence model that runs 4× faster than comparable models — alongside Gemini Omni, which can generate content from any input type including video. The new Google Antigravity 2.0 platform lets developers spin up specialised AI sub-agents to tackle complex multi-step workflows. For creatives and developers in Ghana, this is the moment to start building with agent-first tools.", category: "ai", date: today },
-        { title: "WebMCP & Chrome's Agentic Web: What Every Developer Must Know Now", excerpt: "Google just shipped WebMCP at I/O 2026 — a new protocol letting AI agents interact directly with websites without screen-scraping hacks. Combined with Gemini in Chrome DevTools (now with Lighthouse data access), debugging and performance auditing can be fully automated. Built-in browser AI means you can deploy personalised features without token bills. Web developers in Accra and across Africa need to rethink their frontend architecture today.", category: "web", date: today },
-        { title: "SynthID Goes Industry-Wide: OpenAI & ElevenLabs Adopt Google's AI Watermark", excerpt: "Google's SynthID digital watermarking standard just got a massive credibility boost at I/O 2026 — OpenAI, Kakao, and ElevenLabs all signed on to embed it into their generated content. Combined with C2PA Content Credentials now expanding to Google Search and Chrome, identifying AI-generated media is becoming mainstream. For design studios and content creators, understanding provenance tools is no longer optional — it's a client-trust imperative.", category: "design", date: today },
-        { title: "Google Antigravity 2.0: The Agent-First Dev Platform That Replaces Your CLI", excerpt: "Antigravity 2.0 shipped at Google I/O 2026 with a new standalone desktop app, Managed Agents via the Gemini API, and native Android vibe coding in AI Studio. The Antigravity CLI lets you orchestrate sub-agents across complex workflows with built-in terminal sandboxing, credential masking, and hardened Git policies. Developers building apps for African markets should explore how Antigravity compresses full-stack development cycles dramatically.", category: "tools", date: today },
-        { title: "Meta Muse Spark & Agentic Instagram Shopping: What Brands Must Prepare For", excerpt: "Meta is deploying a highly personalised AI assistant powered by its Muse Spark model that autonomously completes tasks across software and hardware environments. Agentic shopping features are being tested inside Instagram ahead of a year-end rollout. OpenAI also launched B2B Signals — a quarterly enterprise AI adoption tracker. For studios managing social media in Ghana, these platforms are about to change how products get discovered and purchased.", category: "update", date: today },
-        { title: "AI Agents Are the New Attack Surface: Prompt Injection & What to Do", excerpt: "Google warned this week that malicious websites are poisoning AI agents by injecting hidden prompts to leak sensitive data or execute unauthorised actions. As AI agents gain access to email, calendars, and enterprise systems, deepfake voice and video phishing is also escalating sharply. AI is entering a governance phase — companies that make their AI verifiable and auditable will have a lasting edge. Every web studio deploying AI tools for clients now needs a basic AI security audit.", category: "ai", date: today },
+        { title: "Google I/O 2026: Gemini Omni, Antigravity & the Agentic Web Are Here", excerpt: "Google I/O 2026 (May 20–21) delivered the biggest AI product wave in the company's history. Gemini Omni is now live — a fully multimodal model that accepts any input and generates any output including video, audio, and code simultaneously. Google Antigravity launched as a standalone agentic developer platform, letting you orchestrate specialised AI sub-agents across complex workflows with a desktop app and CLI. For digital studios in Ghana, this is the moment to move from AI experiments to AI-powered production pipelines.", category: "ai", date: today },
+        { title: "WebMCP Explained: How Google's New Protocol Lets AI Agents Browse the Web", excerpt: "WebMCP — unveiled at Google I/O 2026 — is a browser-native protocol that allows AI agents to interact with any website without fragile screen-scraping hacks. Combined with Gemini now embedded in Chrome DevTools with full Lighthouse data access, automated performance auditing and debugging are becoming zero-effort. Adobe, Canva, and CapCut all announced Gemini integrations at I/O, meaning your design tools are about to become conversational. Web developers building for African markets need to rethink their architecture to take advantage of these agentic browser capabilities.", category: "web", date: today },
+        { title: "SynthID Goes Universal: OpenAI, ElevenLabs & Kakao Adopt Google's AI Watermark", excerpt: "Google's SynthID digital watermarking standard just became the industry default after OpenAI, ElevenLabs, and Kakao all signed on at I/O 2026. C2PA Content Credentials are now expanding into Google Search and Chrome, making it possible to verify the origin of any piece of content. For design studios, this is a watershed moment — clients will soon expect AI-generated assets to carry verifiable provenance metadata. Studios in Accra that build SynthID-aware workflows now will have a significant trust advantage.", category: "design", date: today },
+        { title: "Cursor 3 & Claude Code Upgrades: Autonomous Coding Agents Are Production-Ready", excerpt: "Cursor 3 shipped its Agents Window this month, enabling multiple specialised coding agents to run in parallel on separate branches of your codebase. Anthropic doubled Claude Code's rate limits and added native multi-agent coordination, letting teams run orchestrated agent pipelines from a single terminal command. Microsoft Agent 365 — a dedicated governance platform for enterprise AI agents at $15/user/month — signals that agentic tooling is now a board-level priority. Developers at Ghanaian studios should start testing multi-agent workflows on real client projects this month.", category: "tools", date: today },
+        { title: "Meta Muse Spark & Instagram Shopping Agents: What Brands Must Do Now", excerpt: "Meta's Muse Spark model powers a new agentic assistant that autonomously completes tasks across apps and hardware, handling everything from scheduling to purchases. Agentic Instagram shopping features are in private beta ahead of a broad rollout, enabling AI to discover, recommend, and complete purchases on a user's behalf. OpenAI hit $25B ARR this month while xAI is being dissolved and merged into SpaceXAI. For social media managers and brand studios in Ghana, the way products are discovered and sold on Instagram is about to change permanently.", category: "update", date: today },
+        { title: "AI Agent Security in 2026: The GitHub Attack & What Every Studio Must Know", excerpt: "TeamPCP, a threat group, executed 20 waves of supply-chain attacks in May 2026, compromising 500+ software packages including GitHub repositories. AI agents with access to email, calendars, and file systems are now a primary target for prompt injection — malicious instructions hidden in web content that hijack agent actions. Google explicitly warned developers at I/O 2026 that AI agent security is now the most urgent infrastructure problem in tech. Every studio deploying AI tools for clients needs a basic security audit covering agent permissions, credential isolation, and data access policies.", category: "ai", date: today },
       ];
       renderBlog(fallback);
       updateLastUpdated(Date.now());
