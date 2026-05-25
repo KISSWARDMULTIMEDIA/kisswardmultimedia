@@ -2932,7 +2932,7 @@
     <div class="linkedin-embed-wrap reveal" aria-label="Kissward Multimedia on LinkedIn">
       <div class="linkedin-embed-header">
         <div class="linkedin-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 23.2 24 22.222 24h.003z"/></svg>
         </div>
         <div class="linkedin-header-text">
           <strong>Kissward Multimedia</strong>
@@ -2940,17 +2940,12 @@
         </div>
         <a href="https://gh.linkedin.com/in/kissward-multimedia-013577100" class="linkedin-follow-btn" target="_blank" rel="noopener" aria-label="Follow Kissward Multimedia on LinkedIn">+ Follow</a>
       </div>
-      <div class="linkedin-feed-placeholder" aria-label="Recent LinkedIn updates">
-        <a href="https://gh.linkedin.com/in/kissward-multimedia-013577100" class="li-post-card" target="_blank" rel="noopener" aria-label="View LinkedIn post about website development">
-          <div class="li-post-date">📅 Latest Update</div>
-          <p class="li-post-text">🚀 Just launched a new e-commerce website for a Ghanaian retail brand — fully mobile-optimised with integrated payment gateway. Proud of the team's work on this one!</p>
-          <span class="li-post-tag">💻 Website Development · View on LinkedIn →</span>
-        </a>
-        <a href="https://gh.linkedin.com/in/kissward-multimedia-013577100" class="li-post-card" target="_blank" rel="noopener" aria-label="View LinkedIn post about animation">
-          <div class="li-post-date">📅 Featured Showcase</div>
-          <p class="li-post-text">🎬 Behind the scenes of our latest 3D product animation project. From concept to final render — this is why we love what we do. Check out the full video on our YouTube channel!</p>
-          <span class="li-post-tag">🎨 Animation & Design · View on LinkedIn →</span>
-        </a>
+      <div class="linkedin-feed-placeholder" id="linkedin-feed-container" aria-label="Recent LinkedIn updates">
+        <!-- Posts generated dynamically -->
+        <div class="li-loading" style="grid-column:1/-1;display:flex;align-items:center;gap:12px;padding:24px 0;color:var(--muted);font-size:0.85rem;">
+          <div class="blog-spinner" style="width:18px;height:18px;border-width:2px;border-top-color:#0a66c2;"></div>
+          <span>Loading latest posts…</span>
+        </div>
       </div>
     </div>
 
@@ -3349,13 +3344,99 @@
     return Math.abs(h);
   }
 
-  // Thumbnail: use Picsum Photos (reliable, no API key, deterministic by seed)
-  // Falls back to generated SVG on error
+  // ── Google Flow / Imagen 4 AI Thumbnail Generator ────────────────────────────
+  // Uses Google's Gemini API (the same model powering Google Flow's image tab).
+  // Set your Gemini API key below — get one free at https://aistudio.google.com/
+  const GOOGLE_FLOW_API_KEY = 'YOUR_GEMINI_API_KEY'; // ← paste your key here
+
+  // Cache: generated base64 images stored per post title to avoid re-generation
+  const THUMB_CACHE_PREFIX = 'km_thumb_v1_';
+
+  // Build a vivid Imagen 4 prompt from post metadata
+  function buildImagePrompt(post) {
+    const styleMap = {
+      ai:     'a sleek futuristic tech scene with glowing neural networks, circuit patterns, and deep blue/purple gradient. Photorealistic, cinematic lighting.',
+      web:    'a modern developer workspace with code on dark screens, glowing browser interfaces, and vibrant UI elements. Dark theme, cinematic.',
+      design: 'a creative studio workspace with colorful design tools, Pantone swatches, and bold typography on dark background. Vibrant, editorial.',
+      tools:  'a high-tech developer toolset — terminals, IDE windows, and productivity apps with neon accents on dark background. Cinematic.',
+      update: 'a bold tech startup visual — futuristic city skyline, innovation metaphors, rockets, growth charts. Dark moody cinematic.',
+    };
+    const style = styleMap[post.category] || styleMap['ai'];
+    // Distill 3-4 key concept words from the title
+    const stop = new Set(['the','a','an','and','or','in','on','of','to','for','is','are','with','how','why','what','will','from','that','this','its','are','been','has','have','new','now']);
+    const keywords = (post.title||'').replace(/[^a-zA-Z0-9 ]/g,' ').split(' ')
+      .filter(w => w.length > 3 && !stop.has(w.toLowerCase())).slice(0,4).join(', ');
+    return `Tech blog thumbnail for article titled "${post.title}". Theme: ${keywords}. Visual style: ${style} No text overlays. Wide aspect ratio 16:9. Ultra high quality.`;
+  }
+
+  // Returns cache key for a post
+  function thumbCacheKey(post) {
+    return THUMB_CACHE_PREFIX + titleSeed(post.title || '');
+  }
+
+  // Fetch a generated image from Google's Imagen 4 (Google Flow's image model).
+  // Returns a base64 data URL or null on failure.
+  async function generateThumbViaGoogleFlow(post) {
+    if (!GOOGLE_FLOW_API_KEY || GOOGLE_FLOW_API_KEY === 'YOUR_GEMINI_API_KEY') return null;
+    const prompt = buildImagePrompt(post);
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/imagen-4-generate-001:predict?key=${GOOGLE_FLOW_API_KEY}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            instances: [{ prompt }],
+            parameters: { sampleCount: 1, aspectRatio: '16:9', safetyFilterLevel: 'block_few', personGeneration: 'dont_allow' }
+          })
+        }
+      );
+      if (!res.ok) return null;
+      const data = await res.json();
+      const b64 = data?.predictions?.[0]?.bytesBase64Encoded;
+      if (!b64) return null;
+      return `data:image/jpeg;base64,${b64}`;
+    } catch { return null; }
+  }
+
+  // thumbURL: returns SVG placeholder immediately (fast render),
+  // then async-swaps with AI-generated image once ready.
   function thumbURL(post, w, h) {
-    const seed = titleSeed(post.title || '');
-    // Picsum uses integer IDs 1–1000; we pick one deterministically per post
-    const id = (seed % 900) + 50; // keep away from edge IDs
-    return `https://picsum.photos/seed/${id}/${w}/${h}`;
+    // Return SVG placeholder as initial src — AI image swapped in by swapThumb()
+    return thumbFallbackSVG(post);
+  }
+
+  // Called after cards are rendered — generates & swaps thumbs in background
+  async function swapThumbsWithAI(posts) {
+    for (let i = 0; i < posts.length; i++) {
+      const post = posts[i];
+      const cacheKey = thumbCacheKey(post);
+
+      // Check localStorage cache first
+      let dataUrl = null;
+      try { dataUrl = localStorage.getItem(cacheKey); } catch(e) {}
+
+      // Not cached → generate via Google Flow / Imagen 4
+      if (!dataUrl) {
+        dataUrl = await generateThumbViaGoogleFlow(post);
+        if (dataUrl) {
+          try { localStorage.setItem(cacheKey, dataUrl); } catch(e) {}
+        }
+      }
+
+      // Swap all <img> elements for this post index
+      if (dataUrl) {
+        document.querySelectorAll(`[data-blog-idx="${i}"] img.blog-featured-thumb,
+                                   [data-blog-idx="${i}"] img.blog-card-thumb`).forEach(img => {
+          img.style.transition = 'opacity 0.5s ease';
+          img.style.opacity = '0';
+          setTimeout(() => {
+            img.src = dataUrl;
+            img.style.opacity = '1';
+          }, 80);
+        });
+      }
+    }
   }
 
   // Inline SVG fallback (used as onerror backup)
@@ -3471,6 +3552,10 @@
     });
 
     updateBlogSchema(posts);
+
+    // Generate AI thumbnails via Google Flow (Imagen 4) asynchronously
+    // Cards show SVG placeholders immediately; AI images fade in once ready
+    swapThumbsWithAI(posts);
   }
 
   // ── Modal: open & render post ──────────────────────────────────────────────
@@ -3483,10 +3568,17 @@
     if (!post) return;
     const cat = getCat(post.category);
 
+    // Use cached AI thumb if available, otherwise SVG placeholder
+    let heroSrc = thumbFallbackSVG(post);
+    try {
+      const cached = localStorage.getItem(thumbCacheKey(post));
+      if (cached) heroSrc = cached;
+    } catch(e) {}
+
     // Show loading state immediately
     bmInner.innerHTML = `
       <div class="bm-hero" style="aspect-ratio:16/7;overflow:hidden;position:relative;">
-        <img src="${thumbURL(post, 1280, 720)}" class="bm-hero-img" alt="${esc(post.title)}" onerror="this.onerror=null;this.src='${thumbFallbackSVG(post)}'" />
+        <img src="${heroSrc}" id="bm-hero-img" class="bm-hero-img" alt="${esc(post.title)}" />
         <div class="bm-hero-overlay"></div>
         <span class="bm-cat-badge ${cat.cls}">${cat.icon} ${cat.label}</span>
       </div>
@@ -3509,6 +3601,26 @@
     modalOverlay.setAttribute('aria-hidden', 'false');
     modalOverlay.scrollTop = 0;
     document.body.style.overflow = 'hidden';
+
+    // If hero is still SVG placeholder, try generating/fetching the AI image
+    if (heroSrc.startsWith('data:image/svg')) {
+      generateThumbViaGoogleFlow(post).then(dataUrl => {
+        if (!dataUrl) return;
+        try { localStorage.setItem(thumbCacheKey(post), dataUrl); } catch(e) {}
+        const heroImg = document.getElementById('bm-hero-img');
+        if (heroImg) {
+          heroImg.style.transition = 'opacity 0.5s ease';
+          heroImg.style.opacity = '0';
+          setTimeout(() => { heroImg.src = dataUrl; heroImg.style.opacity = '1'; }, 60);
+        }
+        // Also update the card thumbnail in the background
+        document.querySelectorAll(`[data-blog-idx="${idx}"] img`).forEach(img => {
+          img.style.transition = 'opacity 0.4s ease';
+          img.style.opacity = '0';
+          setTimeout(() => { img.src = dataUrl; img.style.opacity = '1'; }, 80);
+        });
+      }).catch(() => {});
+    }
 
     // Fetch full article body
     fetchArticleBody(post).then(html => {
@@ -3582,14 +3694,16 @@ Write the full article body only — no title, no meta. Use this HTML structure:
 - <code> for code snippets or technical terms
 
 Write approximately 500–700 words. Be specific, practical, and insightful. Reference real tools, frameworks, or techniques from May 2026 where relevant — including:
+- Anthropic: Claude Mythos (cybersecurity AI), Claude Design (Figma competitor, Opus 4.7), Claude Code ($2.5B run-rate), Anthropic's $900B valuation & IPO plans, Stainless SDK acquisition
 - Google I/O 2026: Gemini Omni, Google Antigravity, WebMCP, Universal Cart, SynthID, Android Halo, Gemini in Chrome DevTools
-- Adobe/Canva/CapCut Gemini integrations
-- Microsoft Agent 365 and enterprise AI governance
-- Meta Muse Spark and Instagram agentic shopping
-- Claude Code multi-agent coordination (Anthropic)
-- Cursor 3 Agents Window for autonomous coding
-- GitHub supply-chain attack by TeamPCP (security awareness)
-- AI governance and accountability becoming board-level priority
+- Figma's in-house AI agent (Claude Code + OpenAI Codex integration); 46% YoY revenue growth
+- Adobe/Canva/CapCut Gemini integrations for image/video editing
+- Microsoft Copilot Studio "computer use" agents (GA) — AI operating software directly
+- Cloudflare + Stripe autonomous agent protocol (create accounts, buy domains, deploy apps)
+- OpenAI confidential IPO filing; $25B ARR
+- Meta and Intuit layoffs tied explicitly to AI agent capabilities
+- AMD 2nm EPYC Venice — AI infrastructure milestone
+- US government pre-release AI model access requirements (Microsoft, xAI)
 
 End with a brief paragraph connecting the topic to how creative studios like Kissward Multimedia in Ghana can leverage it right now.
 
@@ -3619,31 +3733,35 @@ Output clean HTML only — no markdown, no wrapper tags, no preamble.`;
 
 Generate exactly 6 blog post cards for today (${today}). Cover AI tools, web development, design, developer tools, and software updates — always from the lens of creatives and digital professionals in Ghana and across Africa.
 
-CRITICAL: You must reflect the absolute latest AI and tech news as of ${today}. Prioritise stories that broke in the last 7 days. Key headlines to draw from for May 2026:
+CRITICAL: You must reflect the absolute latest AI and tech news as of ${today}. Prioritise stories that broke in the last 7 days. Key headlines to draw from for late May 2026:
+
+ANTHROPIC & CLAUDE (Week of May 19–25, 2026):
+- Anthropic closing $30B+ funding round at $900B valuation — surpassing OpenAI as most valuable private AI company
+- Claude Mythos: Anthropic's new flagship model for cybersecurity & vulnerability discovery — finds security flaws in large codebases within days
+- Claude Design launched: AI-powered design platform (powered by Opus 4.7) that generates prototypes, slides, and visual content from prompts — direct Figma competitor
+- Anthropic acquires Stainless (May 18): startup behind high-quality SDKs for OpenAI, Cloudflare, Merge — signals major developer experience upgrade for Claude API
+- Claude Code surpasses $2.5B run-rate revenue; 1,000+ enterprise customers spending $1M+/year
+- Anthropic goes profitable; IPO talks underway with Goldman Sachs, JPMorgan, Morgan Stanley (potential October 2026)
 
 GOOGLE I/O 2026 (May 20–21, 2026):
 - Gemini Omni: Google's new flagship multimodal model (any input → any output including video)
-- Google Antigravity: new agentic developer platform with sub-agent orchestration, standalone desktop app, Android vibe coding in AI Studio
+- Google Antigravity: new agentic developer platform with sub-agent orchestration, standalone desktop app
 - WebMCP: browser-native protocol letting AI agents interact with websites without screen-scraping
 - Universal Cart: AI-powered cross-site shopping aggregator inside Google Search
-- SynthID watermarking now adopted by OpenAI, Kakao, ElevenLabs — industry content-provenance standard
-- Google Beam: holographic video calling device
-- Fitbit Air: health-tracking smart ring
+- SynthID watermarking adopted by OpenAI, Kakao, ElevenLabs — industry content-provenance standard
 - Android Halo: new Android AI layer with on-device Gemini Nano 4
 - Gemini in Chrome DevTools with Lighthouse integration
 - Adobe, Canva, CapCut announce Gemini integrations for image/video editing
 
-OTHER MAY 2026 NEWS:
-- Microsoft Agent 365: enterprise AI agent governance platform ($15/user/month)
-- Meta Muse Spark: personalised agentic AI completing tasks across apps; Instagram agentic shopping agents
-- Claude Code rate limits doubled, multi-agent coordination added; Anthropic at $900B valuation
-- OpenAI hits $25B ARR; xAI (Grok) being dissolved into SpaceXAI
-- Cursor 3 + Agents Window: autonomous coding agents
-- GitHub supply chain attacks (500+ packages compromised by TeamPCP)
-- AI governance and autonomous AI security becoming board-level priority
-- Qwen3.6 by Alibaba: new open-weight frontier model
-- NASA testing radiation-hardened AI chip for autonomous spacecraft
-- L'Oréal deploying generative AI across all marketing workflows globally
+OTHER LATE MAY 2026 NEWS:
+- Figma launches in-house AI agent (partnered with Anthropic & OpenAI) — Claude Code + Codex integrated into Figma canvas; Q1 2026 revenue up 46% YoY to $333M
+- Microsoft launches "computer use" agents in Copilot Studio (GA) — enterprise AI that directly operates software interfaces
+- Meta & Intuit cut 8,000 and 3,000 jobs respectively, explicitly attributing reductions to AI agent capabilities
+- Cloudflare + Stripe protocol: AI agents can now autonomously create accounts, buy domains, and deploy apps
+- AMD kicks off 2nm EPYC "Venice" processor production — major AI infrastructure milestone
+- OpenAI files confidentially for IPO; hits $25B ARR
+- Novo Nordisk + OpenAI strategic partnership: AI across drug discovery, manufacturing, and supply chains
+- AI governance pressure: US government requiring pre-release model access from Microsoft, xAI, and others
 
 Write punchy, specific, opinionated posts. Connect each story to opportunities or risks for creatives, studios, and developers in Ghana and Africa.
 
@@ -3703,12 +3821,12 @@ Category values: "ai", "web", "design", "tools", "update". Post 1 must be the mo
       console.warn('Blog load error:', err);
       const today = new Date().toISOString().split('T')[0];
       const fallback = [
-        { title: "Google I/O 2026: Gemini Omni, Antigravity & the Agentic Web Are Here", excerpt: "Google I/O 2026 (May 20–21) delivered the biggest AI product wave in the company's history. Gemini Omni is now live — a fully multimodal model that accepts any input and generates any output including video, audio, and code simultaneously. Google Antigravity launched as a standalone agentic developer platform, letting you orchestrate specialised AI sub-agents across complex workflows with a desktop app and CLI. For digital studios in Ghana, this is the moment to move from AI experiments to AI-powered production pipelines.", category: "ai", date: today },
-        { title: "WebMCP Explained: How Google's New Protocol Lets AI Agents Browse the Web", excerpt: "WebMCP — unveiled at Google I/O 2026 — is a browser-native protocol that allows AI agents to interact with any website without fragile screen-scraping hacks. Combined with Gemini now embedded in Chrome DevTools with full Lighthouse data access, automated performance auditing and debugging are becoming zero-effort. Adobe, Canva, and CapCut all announced Gemini integrations at I/O, meaning your design tools are about to become conversational. Web developers building for African markets need to rethink their architecture to take advantage of these agentic browser capabilities.", category: "web", date: today },
-        { title: "SynthID Goes Universal: OpenAI, ElevenLabs & Kakao Adopt Google's AI Watermark", excerpt: "Google's SynthID digital watermarking standard just became the industry default after OpenAI, ElevenLabs, and Kakao all signed on at I/O 2026. C2PA Content Credentials are now expanding into Google Search and Chrome, making it possible to verify the origin of any piece of content. For design studios, this is a watershed moment — clients will soon expect AI-generated assets to carry verifiable provenance metadata. Studios in Accra that build SynthID-aware workflows now will have a significant trust advantage.", category: "design", date: today },
-        { title: "Cursor 3 & Claude Code Upgrades: Autonomous Coding Agents Are Production-Ready", excerpt: "Cursor 3 shipped its Agents Window this month, enabling multiple specialised coding agents to run in parallel on separate branches of your codebase. Anthropic doubled Claude Code's rate limits and added native multi-agent coordination, letting teams run orchestrated agent pipelines from a single terminal command. Microsoft Agent 365 — a dedicated governance platform for enterprise AI agents at $15/user/month — signals that agentic tooling is now a board-level priority. Developers at Ghanaian studios should start testing multi-agent workflows on real client projects this month.", category: "tools", date: today },
-        { title: "Meta Muse Spark & Instagram Shopping Agents: What Brands Must Do Now", excerpt: "Meta's Muse Spark model powers a new agentic assistant that autonomously completes tasks across apps and hardware, handling everything from scheduling to purchases. Agentic Instagram shopping features are in private beta ahead of a broad rollout, enabling AI to discover, recommend, and complete purchases on a user's behalf. OpenAI hit $25B ARR this month while xAI is being dissolved and merged into SpaceXAI. For social media managers and brand studios in Ghana, the way products are discovered and sold on Instagram is about to change permanently.", category: "update", date: today },
-        { title: "AI Agent Security in 2026: The GitHub Attack & What Every Studio Must Know", excerpt: "TeamPCP, a threat group, executed 20 waves of supply-chain attacks in May 2026, compromising 500+ software packages including GitHub repositories. AI agents with access to email, calendars, and file systems are now a primary target for prompt injection — malicious instructions hidden in web content that hijack agent actions. Google explicitly warned developers at I/O 2026 that AI agent security is now the most urgent infrastructure problem in tech. Every studio deploying AI tools for clients needs a basic security audit covering agent permissions, credential isolation, and data access policies.", category: "ai", date: today },
+        { title: "Anthropic Hits $900B Valuation: Claude Mythos, Claude Design & an IPO on the Horizon", excerpt: "Anthropic is closing a $30B+ funding round that would make it the world's most valuable private AI company — surpassing OpenAI on the same week OpenAI filed confidentially for its IPO. Claude Mythos, Anthropic's newest model, is purpose-built for cybersecurity: it finds vulnerabilities in large codebases within days and simulates cyberattacks to patch security flaws faster. Claude Design (powered by Opus 4.7) launched as a direct Figma competitor — generating prototypes, slides, and visual content from natural-language prompts. For studios in Ghana, this signals a new era: AI that does creative and security work at the frontier, accessible via API today.", category: "ai", date: today },
+        { title: "Figma's AI Agent Is Live: Claude Code + OpenAI Codex Now Inside Your Design Canvas", excerpt: "Figma has integrated Claude Code and OpenAI Codex directly into its collaborative design canvas, letting designers run multiple AI agents simultaneously with natural-language prompts. Users can now generate new designs, edit layouts, automate repetitive tasks, and orchestrate agents for complex workflows — all without leaving Figma. Figma's Q1 2026 revenue hit $333M, up 46% year-on-year, even as Claude Design from Anthropic raises competitive pressure. For web and UI designers in Accra, this update transforms Figma from a design tool into a full agentic creative workspace.", category: "web", date: today },
+        { title: "Google I/O 2026: Gemini Omni, WebMCP & SynthID's New Industry Standard", excerpt: "Google I/O 2026 delivered Gemini Omni — a fully multimodal model that takes any input and generates any output including video, audio, and code simultaneously. WebMCP, a browser-native protocol, lets AI agents interact with any website without screen-scraping, and Adobe, Canva, and CapCut all announced Gemini integrations. SynthID watermarking is now the industry default for AI content provenance, with OpenAI, ElevenLabs, and Kakao all signing on. For design studios in Ghana, building SynthID-aware workflows now means clients can verify the authenticity of every AI-generated asset you deliver.", category: "design", date: today },
+        { title: "Microsoft Copilot 'Computer Use' Agents Go GA: AI That Operates Software Directly", excerpt: "Microsoft has launched computer-use agents in Copilot Studio at general availability — enterprise AI systems that interact directly with software interfaces, clicking buttons and filling forms just like a human would. Cloudflare and Stripe simultaneously launched a protocol enabling AI agents to autonomously create accounts, purchase domains, and deploy applications without any human intervention. Combined with Microsoft's explicit link between these capabilities and recent job cuts at Intuit (3,000 roles) and Meta (8,000 roles), the automation wave is no longer theoretical. Developers and studios in Ghana should audit which workflows these agents can handle, and position human creativity where it cannot be replicated.", category: "tools", date: today },
+        { title: "OpenAI Files for IPO, $25B ARR — and Anthropic May Beat Them to Market", excerpt: "OpenAI has filed confidentially for an IPO while hitting $25B in annualised revenue, making it one of the fastest-scaling software companies in history. Simultaneously, Anthropic — now at $30B+ ARR and $900B valuation — is in IPO talks with Goldman Sachs, JPMorgan, and Morgan Stanley for a potential October 2026 listing. AMD's 2nm EPYC 'Venice' processors have entered production, a milestone that will dramatically lower AI inference costs over the next 12 months. For digital agencies in Africa, cheaper compute means AI tools will become more accessible and affordable faster than most expect.", category: "update", date: today },
+        { title: "Anthropic Acquires Stainless: Better Claude SDKs Are Coming for Every Developer", excerpt: "Anthropic acquired Stainless on May 18, 2026 — the startup behind polished, well-typed SDKs for OpenAI, Cloudflare, and Merge. This signals a major investment in the developer experience layer around the Claude API, with improved Python, TypeScript, Go, Java, and Ruby SDKs expected in the next 6–12 months. Claude Code has already crossed $2.5B in run-rate revenue; 1,000+ enterprises now spend over $1M per year on Claude services. For developers at Ghanaian studios building on the Claude API, significantly better tooling is coming — now is the time to get comfortable with Claude-powered pipelines.", category: "ai", date: today },
       ];
       renderBlog(fallback);
       updateLastUpdated(Date.now());
@@ -3754,6 +3872,103 @@ Category values: "ai", "web", "design", "tools", "update". Post 1 must be the mo
   // Init
   loadBlogPosts();
   setInterval(() => loadBlogPosts(true), BLOG_TTL_MS);
+
+  // ── LinkedIn Feed: Claude-generated posts from Kissward Multimedia ────────────
+  const LI_CACHE_KEY = 'km_linkedin_posts_v1';
+  const LI_CACHE_TS  = 'km_linkedin_posts_ts_v1';
+  const LI_TTL_MS    = 24 * 60 * 60 * 1000; // refresh once per day
+
+  const LI_FALLBACK = [
+    {
+      emoji: '🚀',
+      date: 'Latest Update',
+      tag: '💻 Website Development',
+      text: "Just launched a new e-commerce website for a Ghanaian retail brand — fully mobile-optimised with an integrated Mobile Money payment gateway. Clean UI, fast load times, and built to convert. Proud of the team's work on this one! #WebDevelopment #Ghana #Ecommerce"
+    },
+    {
+      emoji: '🎬',
+      date: 'Featured Showcase',
+      tag: '🎨 Animation & Motion',
+      text: "Behind the scenes of our latest 3D product animation project. From concept sketches to final render — this is why we love what we do. Every frame is intentional. Full video dropping on YouTube soon! #3DAnimation #MotionGraphics #Accra"
+    }
+  ];
+
+  function liCardHTML(post) {
+    const liUrl = 'https://gh.linkedin.com/in/kissward-multimedia-013577100';
+    return `<a href="${liUrl}" class="li-post-card" target="_blank" rel="noopener" aria-label="View Kissward Multimedia LinkedIn post">
+      <div class="li-post-date">${post.emoji ? post.emoji + ' ' : '📅 '}${post.date}</div>
+      <p class="li-post-text">${post.text}</p>
+      <span class="li-post-tag">${post.tag} · View on LinkedIn →</span>
+    </a>`;
+  }
+
+  function renderLinkedIn(posts) {
+    const container = document.getElementById('linkedin-feed-container');
+    if (!container) return;
+    container.innerHTML = posts.map(liCardHTML).join('');
+  }
+
+  async function fetchLinkedInPosts() {
+    const today = new Date().toISOString().split('T')[0];
+    const services = ['Video Editing','Website Development','Graphic Design & Branding','2D & 3D Animation','IT Support & PC Repair','Social Media Management'];
+    const prompt = `You are the social media manager for Kissward Multimedia, a creative multimedia studio based in Accra, Ghana, run by David Kissward. You write authentic, engaging LinkedIn posts that showcase the studio's real work and expertise.
+
+Generate exactly 2 LinkedIn posts written in first-person plural ("we", "our team") as if posted by Kissward Multimedia today (${today}). The posts should feel genuine — real project updates, behind-the-scenes moments, client wins, or industry observations — NOT generic inspirational quotes.
+
+Services the studio offers: ${services.join(', ')}.
+
+Each post should:
+- Open with a strong emoji and hook line
+- Be 3–5 sentences, conversational and specific
+- End with 3–4 relevant hashtags (Ghana, Accra, or service-specific)
+- Feel like a real business update a Ghanaian creative studio would post
+
+Respond ONLY with a JSON array, no markdown, no preamble. Exact format:
+[{"emoji":"🎬","date":"Today","tag":"🎨 Animation & Design","text":"Full post text here with #hashtags at the end."},{"emoji":"💻","date":"This Week","tag":"💻 Website Development","text":"Full post text here with #hashtags at the end."}]`;
+
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 600,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    if (!res.ok) throw new Error('API ' + res.status);
+    const data = await res.json();
+    const text = (data.content || []).map(b => b.text || '').join('');
+    const clean = text.replace(/```json|```/g, '').trim();
+    const arr = JSON.parse(clean);
+    if (!Array.isArray(arr) || arr.length < 1) throw new Error('Bad response');
+    return arr;
+  }
+
+  async function loadLinkedInFeed() {
+    // Try cache first
+    try {
+      const ts = localStorage.getItem(LI_CACHE_TS);
+      const now = Date.now();
+      if (ts && (now - parseInt(ts)) < LI_TTL_MS) {
+        const cached = localStorage.getItem(LI_CACHE_KEY);
+        if (cached) {
+          const posts = JSON.parse(cached);
+          if (Array.isArray(posts) && posts.length) { renderLinkedIn(posts); return; }
+        }
+      }
+    } catch(e) {}
+
+    try {
+      const posts = await fetchLinkedInPosts();
+      try { localStorage.setItem(LI_CACHE_KEY, JSON.stringify(posts)); localStorage.setItem(LI_CACHE_TS, String(Date.now())); } catch(e) {}
+      renderLinkedIn(posts);
+    } catch(err) {
+      console.warn('LinkedIn feed error:', err);
+      renderLinkedIn(LI_FALLBACK);
+    }
+  }
+
+  loadLinkedInFeed();
 </script>
 </body>
 </html>
