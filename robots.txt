@@ -1,9 +1,20 @@
-# robots.txt — kisswardmultimedia.github.io/kisswardmultimedia
+# robots.txt — www.kisswardmultimedia.top
 User-agent: *
-Disallow: /kisswardmultimedia/admin/
-Disallow: /kisswardmultimedia/private/
-Disallow: /kisswardmultimedia/analytics.js
+Disallow: /admin/
+Disallow: /private/
+Disallow: /assets/js/analytics.js
+Disallow: /og-image.html
+
+# Crawl budget: allow Google to discover all important pages
+Allow: /
+Allow: /img/
+Allow: /assets/css/
+Allow: /assets/js/
 
 Crawl-delay: 1
 
-Sitemap: https://kisswardmultimedia.github.io/kisswardmultimedia/sitemap.xml
+# Sitemap location
+Sitemap: https://www.kisswardmultimedia.top/sitemap.xml
+
+# Host directive tells crawlers the canonical hostname
+Host: https://www.kisswardmultimedia.top
