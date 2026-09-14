@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Kissward Multimedia — Accra, Ghana</title>
+  <meta name="description" content="Privacy Policy for Kissward Multimedia. Learn how we collect, use, and protect your personal data when you visit our website or use our services in Accra, Ghana." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.kisswardmultimedia.top/privacy-policy.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:        #080a0e;
+      --bg2:       #0d1117;
+      --bg3:       #131a24;
+      --surface:   #1a2332;
+      --border:    rgba(255,255,255,0.07);
+      --gold:      #e8c56a;
+      --gold2:     #f5d98e;
+      --cyan:      #00d4ff;
+      --text:      #e8e8e8;
+      --muted:     #7a8899;
+      --white:     #ffffff;
+      --font-disp: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-serif: 'Playfair Display', serif;
+      --radius:    12px;
+      --radius-lg: 20px;
+      --radius-sm: 8px;
+      --transition: 0.4s cubic-bezier(.25,.46,.45,.94);
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: rgba(232,197,106,0.3); color: var(--white); }
+
+    a { color: var(--gold); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--gold2); }
+
+    .container { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 20px 0;
+      background: rgba(8,10,14,0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid transparent;
+      transition: padding var(--transition), background var(--transition), border-color var(--transition);
+    }
+    nav.scrolled {
+      padding: 12px 0;
+      background: rgba(8,10,14,0.92);
+      border-color: var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-disp);
+      font-size: 1.5rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:.6} }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-back {
+      background: var(--gold);
+      color: #000 !important;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      font-weight: 700 !important;
+      font-size: 0.82rem !important;
+      letter-spacing: 0.06em !important;
+      transition: background var(--transition), transform var(--transition) !important;
+    }
+    .nav-back:hover { background: var(--gold2) !important; transform: translateY(-2px); }
+
+    /* ─── HERO ─── */
+    .pp-hero {
+      min-height: 40vh;
+      display: flex; align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding-top: 80px;
+      overflow: hidden;
+    }
+    .pp-hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(232,197,106,0.06) 0%, transparent 70%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+    .pp-hero-content { position: relative; z-index: 1; padding: 100px 0 60px; }
+    .pp-hero-label {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(232,197,106,0.3);
+      padding: 6px 16px; border-radius: 100px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .pp-hero h1 {
+      font-family: var(--font-disp);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .pp-hero p {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .pp-hero .last-updated {
+      display: block;
+      margin-top: 20px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .pp-hero .last-updated strong { color: var(--gold); }
+
+    /* ─── CONTENT ─── */
+    .pp-content {
+      padding: 0 0 100px;
+      position: relative;
+    }
+    .pp-content::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 1px; height: 60px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+    .pp-section {
+      margin-bottom: 48px;
+    }
+    .pp-section:last-child { margin-bottom: 0; }
+    .pp-section h2 {
+      font-family: var(--font-disp);
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.1;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .pp-section h2 .h2-gold {
+      color: var(--gold);
+    }
+    .pp-section h2::before {
+      content: '';
+      width: 4px; height: 24px;
+      background: var(--gold);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .pp-section h3 {
+      font-family: var(--font-disp);
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+      margin: 24px 0 10px;
+    }
+    .pp-section p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .pp-section p strong { color: var(--text); }
+    .pp-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+    }
+    .pp-section ul li {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      padding: 6px 0 6px 24px;
+      position: relative;
+    }
+    .pp-section ul li::before {
+      content: '';
+      position: absolute; left: 0; top: 14px;
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+    .pp-section .highlight-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+    .pp-section .highlight-box p { margin-bottom: 0; }
+    .pp-section .highlight-box strong { color: var(--gold); }
+
+    /* ─── TABLE ─── */
+    .pp-table-wrap {
+      overflow-x: auto;
+      margin: 20px 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .pp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .pp-table th {
+      background: var(--bg3);
+      color: var(--gold);
+      font-weight: 600;
+      text-align: left;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.04em;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+    }
+    .pp-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .pp-table tr:last-child td { border-bottom: none; }
+    .pp-table td:first-child { color: var(--text); font-weight: 500; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 24px;
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      display: flex; flex-direction: column; gap: 32px;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
+    }
+    .footer-logo {
+      font-family: var(--font-disp);
+      font-size: 1.4rem; letter-spacing: 0.12em; color: var(--white);
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a {
+      color: var(--muted); text-decoration: none; font-size: 0.85rem;
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 700px) {
+      .container { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+      .nav-links { display: none; }
+      .pp-hero { min-height: 30vh; }
+      .pp-section h2 { font-size: 1.3rem; }
+      .pp-table-wrap { border-radius: 8px; }
+      .pp-table th, .pp-table td { padding: 10px 14px; font-size: 0.82rem; }
+      .footer-inner { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="https://www.kisswardmultimedia.top/" class="nav-logo">
+        KISSWARD
+        <span class="nav-logo-dot"></span>
+        MULTIMEDIA
+      </a>
+      <div class="nav-links">
+        <a href="https://www.kisswardmultimedia.top/">Home</a>
+        <a href="https://www.kisswardmultimedia.top/#about">About</a>
+        <a href="https://www.kisswardmultimedia.top/#contact">Contact</a>
+        <a href="https://www.kisswardmultimedia.top/" class="nav-back">&larr; Back to Site</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pp-hero">
+    <div class="pp-hero-bg" aria-hidden="true"></div>
+    <div class="pp-hero-content">
+      <div class="container">
+        <span class="pp-hero-label">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p>How Kissward Multimedia collects, uses, and protects your personal data when you visit our website or engage our services.</p>
+        <span class="last-updated"><strong>Last updated:</strong> 5 June 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <div class="pp-content">
+    <div class="container">
+
+      <!-- 1. Introduction -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">01.</span> Introduction</h2>
+        <p>
+          Kissward Multimedia (<strong>"we"</strong>, <strong>"us"</strong>, or <strong>"our"</strong>) respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at <a href="https://www.kisswardmultimedia.top/">www.kisswardmultimedia.top</a> and when you engage our multimedia, software development, design, or IT support services.
+        </p>
+        <p>
+          We operate in accordance with <strong>Ghana's Data Protection Act, 2012 (Act 843)</strong> and, where applicable, the <strong>General Data Protection Regulation (GDPR)</strong> for visitors from the European Economic Area. By using our website and services, you consent to the practices described in this policy.
+        </p>
+      </div>
+
+      <!-- 2. Information We Collect -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">02.</span> Information We Collect</h2>
+        <p>We collect information in three ways: (1) information you provide directly, (2) information collected automatically through cookies and tracking technologies, and (3) information from third-party services.</p>
+
+        <h3>Information You Provide</h3>
+        <ul>
+          <li><strong>Contact details</strong> — your name, email address, phone number, and project details when you fill out our contact form or reach out via WhatsApp.</li>
+          <li><strong>Project materials</strong> — files, images, videos, brand guidelines, and other assets you share with us for the purpose of delivering our services.</li>
+          <li><strong>Communications</strong> — records of your correspondence with us via email, WhatsApp, phone, or our website contact form.</li>
+        </ul>
+
+        <h3>Information Collected Automatically</h3>
+        <p>When you visit our website, the following information may be collected automatically:</p>
+        <div class="pp-table-wrap">
+          <table class="pp-table">
+            <thead>
+              <tr>
+                <th>Data Type</th>
+                <th>Purpose</th>
+                <th>Tool / Provider</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Page views &amp; interactions</td>
+                <td>Understand how visitors use our site to improve content and user experience</td>
+                <td>Google Analytics (GA4)</td>
+              </tr>
+              <tr>
+                <td>Session recordings &amp; heatmaps</td>
+                <td>Analyse user behaviour to optimise page layout and design</td>
+                <td>Microsoft Clarity</td>
+              </tr>
+              <tr>
+                <td>Ad conversion tracking</td>
+                <td>Measure effectiveness of our advertising campaigns</td>
+                <td>Meta Pixel (Facebook)</td>
+              </tr>
+              <tr>
+                <td>IP address &amp; location</td>
+                <td>Approximate geographic location for analytics and fraud prevention</td>
+                <td>Google Analytics / ipapi.co</td>
+              </tr>
+              <tr>
+                <td>Browser type, device, OS</td>
+                <td>Technical diagnostics and responsive design optimisation</td>
+                <td>Google Analytics / Clarity</td>
+              </tr>
+              <tr>
+                <td>Ad personalisation &amp; measurement</td>
+                <td>Serve relevant ads and measure ad performance</td>
+                <td>Google AdSense</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 3. Cookies -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">03.</span> Cookies &amp; Tracking Technologies</h2>
+        <p>
+          We use cookies and similar tracking technologies to enhance your browsing experience, analyse site traffic, serve targeted advertisements, and understand where our visitors come from. Cookies are small text files stored on your device by your web browser.
+        </p>
+        <p><strong>Types of cookies we use:</strong></p>
+        <div class="pp-table-wrap">
+          <table class="pp-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Purpose</th>
+                <th>Examples</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Essential</td>
+                <td>Required for basic site functionality (session management, load balancing)</td>
+                <td>Session cookies</td>
+                <td>Session</td>
+              </tr>
+              <tr>
+                <td>Analytics</td>
+                <td>Understand how visitors interact with our site (pages visited, time on site)</td>
+                <td>Google Analytics (_ga, _gid, _gat)</td>
+                <td>Up to 2 years</td>
+              </tr>
+              <tr>
+                <td>Advertising</td>
+                <td>Serve relevant ads, track conversions, limit ad frequency</td>
+                <td>Meta Pixel, Google AdSense cookies</td>
+                <td>Up to 180 days</td>
+              </tr>
+              <tr>
+                <td>Session Recordings</td>
+                <td>Record user sessions for UX improvement (anonymised)</td>
+                <td>Microsoft Clarity cookies</td>
+                <td>Up to 12 months</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          You can control and manage cookies in your browser settings. You may also opt out of Google Analytics by installing the
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.
+          For Google AdSense, you can manage personalised ad settings at
+          <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.
+        </p>
+      </div>
+
+      <!-- 4. How We Use Your Data -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">04.</span> How We Use Your Information</h2>
+        <p>We use the information we collect for the following purposes:</p>
+        <ul>
+          <li><strong>Service delivery</strong> — to respond to your inquiries, provide quotes, deliver multimedia and software projects, and communicate with you about your projects.</li>
+          <li><strong>Customer support</strong> — to assist you with technical issues, service questions, and follow-ups.</li>
+          <li><strong>Analytics &amp; improvement</strong> — to analyse website traffic, understand user behaviour, and improve our website content, design, and services.</li>
+          <li><strong>Advertising &amp; remarketing</strong> — to show you relevant advertisements about our services on social media and search platforms, and to measure ad performance.</li>
+          <li><strong>Legal compliance</strong> — to comply with applicable laws, regulations, and legal processes in Ghana and other jurisdictions where we operate.</li>
+        </ul>
+        <div class="highlight-box">
+          <p><strong>Legal basis (GDPR):</strong> If you are located in the European Economic Area, we process your personal data based on one or more of the following legal bases: (a) your consent, (b) performance of a contract with you, (c) our legitimate interests (analytics, marketing), or (d) compliance with legal obligations.</p>
+        </div>
+      </div>
+
+      <!-- 5. Third-Party Services -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">05.</span> Third-Party Services</h2>
+        <p>We use the following third-party services that may collect, process, or store your data. Each service operates under its own privacy policy:</p>
+        <div class="pp-table-wrap">
+          <table class="pp-table">
+            <thead>
+              <tr>
+                <th>Service</th>
+                <th>Purpose</th>
+                <th>Data Collected</th>
+                <th>Privacy Policy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Google Analytics</td>
+                <td>Website analytics</td>
+                <td>Page views, device info, location</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></td>
+              </tr>
+              <tr>
+                <td>Google AdSense</td>
+                <td>Advertising</td>
+                <td>Cookies, browsing data, IP</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></td>
+              </tr>
+              <tr>
+                <td>Meta Pixel (Facebook)</td>
+                <td>Ad conversion tracking</td>
+                <td>Page views, ad interactions</td>
+                <td><a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">Meta Privacy Policy</a></td>
+              </tr>
+              <tr>
+                <td>Microsoft Clarity</td>
+                <td>Session recordings, heatmaps</td>
+                <td>Mouse movements, clicks, scrolls</td>
+                <td><a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener">Microsoft Privacy Statement</a></td>
+              </tr>
+              <tr>
+                <td>WhatsApp (Meta)</td>
+                <td>Client communication</td>
+                <td>Messages, phone number</td>
+                <td><a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener">WhatsApp Privacy Policy</a></td>
+              </tr>
+              <tr>
+                <td>GitHub Pages</td>
+                <td>Website hosting</td>
+                <td>IP address, request logs</td>
+                <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 6. Data Sharing -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">06.</span> Data Sharing &amp; Disclosure</h2>
+        <p>We do <strong>not</strong> sell your personal information to third parties. We may share your data only in the following circumstances:</p>
+        <ul>
+          <li><strong>Service providers</strong> — with trusted third-party vendors who assist us in operating our website, conducting analytics, and delivering services (e.g., Google, Meta, Microsoft). These providers are contractually bound to protect your data.</li>
+          <li><strong>Legal requirements</strong> — if required by law, court order, or governmental regulation in Ghana or applicable jurisdictions.</li>
+          <li><strong>Business transfers</strong> — in connection with a merger, acquisition, or sale of assets, we may transfer your data to the acquiring entity.</li>
+          <li><strong>With your consent</strong> — we may share your information for any other purpose with your explicit consent.</li>
+        </ul>
+      </div>
+
+      <!-- 7. Data Retention -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">07.</span> Data Retention</h2>
+        <p>
+          We retain your personal data only as long as necessary to fulfil the purposes described in this policy, or as required by law. Specifically:
+        </p>
+        <ul>
+          <li><strong>Contact form submissions</strong> — retained for up to 24 months after the last communication, unless a longer retention is required for contractual or legal reasons.</li>
+          <li><strong>Analytics data</strong> — retained in Google Analytics for 14 months (user-level and event-level data).</li>
+          <li><strong>Project files &amp; materials</strong> — retained for the duration of the project and up to 12 months thereafter, unless otherwise agreed in writing.</li>
+          <li><strong>Communications records</strong> — retained for up to 6 years to comply with tax and legal obligations under Ghanaian law.</li>
+        </ul>
+        <p>When data is no longer needed, it is securely deleted or anonymised.</p>
+      </div>
+
+      <!-- 8. Your Rights -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">08.</span> Your Rights</h2>
+        <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
+        <div class="pp-table-wrap">
+          <table class="pp-table">
+            <thead>
+              <tr>
+                <th>Right</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Access</td>
+                <td>Request a copy of the personal data we hold about you.</td>
+              </tr>
+              <tr>
+                <td>Rectification</td>
+                <td>Request correction of inaccurate or incomplete data.</td>
+              </tr>
+              <tr>
+                <td>Erasure</td>
+                <td>Request deletion of your personal data where there is no legitimate reason for us to retain it.</td>
+              </tr>
+              <tr>
+                <td>Restriction</td>
+                <td>Request restriction of processing of your personal data in certain circumstances.</td>
+              </tr>
+              <tr>
+                <td>Data Portability</td>
+                <td>Request transfer of your data to you or a third party in a structured, machine-readable format.</td>
+              </tr>
+              <tr>
+                <td>Object</td>
+                <td>Object to processing based on legitimate interests, including direct marketing.</td>
+              </tr>
+              <tr>
+                <td>Withdraw Consent</td>
+                <td>Withdraw consent at any time where we rely on consent to process your data.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>Ghana (Act 843):</strong> Under Ghana's Data Protection Act, you have the right to request details of your personal data held by us and to request correction or deletion.
+        </p>
+        <p>
+          To exercise any of these rights, please contact us using the details below. We will respond to your request within 30 days, as required by applicable law.
+        </p>
+      </div>
+
+      <!-- 9. Data Security -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">09.</span> Data Security</h2>
+        <p>
+          We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction. These include:
+        </p>
+        <ul>
+          <li>Secure HTTPS encryption (SSL/TLS) for all data transmitted between your browser and our website.</li>
+          <li>Restricted access to personal data to only those employees and contractors who need it to perform their duties.</li>
+          <li>Regular review of our data collection, storage, and processing practices.</li>
+          <li>Secure storage of project files and client communications.</li>
+        </ul>
+        <p>
+          However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to protect your data, we cannot guarantee its absolute security.
+        </p>
+      </div>
+
+      <!-- 10. Children's Privacy -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">10.</span> Children's Privacy</h2>
+        <p>
+          Our website and services are not directed at individuals under the age of <strong>16</strong>. We do not knowingly collect personal data from children. If you become aware that a child has provided us with personal data, please contact us immediately. If we discover that we have collected personal data from a child without verified parental consent, we will delete that information promptly.
+        </p>
+      </div>
+
+      <!-- 11. Changes to This Policy -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">11.</span> Changes to This Privacy Policy</h2>
+        <p>
+          We reserve the right to update this Privacy Policy at any time. When we make changes, we will revise the "Last updated" date at the top of this page. We encourage you to review this policy periodically to stay informed about how we are protecting your data.
+        </p>
+        <p>
+          If we make material changes that significantly affect how we handle your personal data, we will notify you via a prominent notice on our website or by direct communication where appropriate.
+        </p>
+      </div>
+
+      <!-- 12. Contact -->
+      <div class="pp-section">
+        <h2><span class="h2-gold">12.</span> Contact Us</h2>
+        <p>
+          If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
+        </p>
+        <div class="highlight-box">
+          <p>
+            <strong>Kissward Multimedia</strong><br />
+            Accra, Greater Accra Region, Ghana<br />
+            <strong>Phone:</strong> <a href="tel:+233542603997">+233 542 603 997</a><br />
+            <strong>WhatsApp:</strong> <a href="https://wa.me/233542603997" target="_blank" rel="noopener">+233 542 603 997</a><br />
+            <strong>Email:</strong> <a href="mailto:kisswardmultimedia@gmail.com">kisswardmultimedia@gmail.com</a><br />
+            <strong>Website:</strong> <a href="https://www.kisswardmultimedia.top/">www.kisswardmultimedia.top</a>
+          </p>
+        </div>
+        <p style="margin-top: 8px;">
+          For matters relating to data protection specifically, you may also contact the <strong>Data Protection Commission of Ghana</strong> at <a href="https://www.dataprotection.org.gh" target="_blank" rel="noopener">dataprotection.org.gh</a>.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">KISSWARD <span>MULTIMEDIA</span></div>
+          <div class="footer-tagline">Creative Multimedia Services &middot; Accra, Ghana</div>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.kisswardmultimedia.top/">Home</a>
+          <a href="https://www.kisswardmultimedia.top/#about">About</a>
+          <a href="https://www.kisswardmultimedia.top/#services">Services</a>
+          <a href="https://www.kisswardmultimedia.top/#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Kissward Multimedia. All rights reserved. &middot; Accra, Ghana &middot; <a href="tel:+233542603997" style="color:var(--gold);text-decoration:none">+233 542 603 997</a></p>
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    // Trigger once on load
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+  </script>
+
+</body>
+</html>
+

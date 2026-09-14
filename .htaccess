@@ -1,0 +1,14 @@
+# Disable mod_pagespeed for this site (fixes CSS mangling on some cPanel hosts)
+<IfModule pagespeed_module>
+  ModPagespeed off
+</IfModule>
+
+# Ensure CSS files are served with correct MIME type
+<FilesMatch "\.css$">
+  Header set Content-Type "text/css; charset=utf-8"
+</FilesMatch>
+
+# Allow access to CSS & JS files
+<FilesMatch "\.(css|js)$">
+  Require all granted
+</FilesMatch>

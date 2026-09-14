@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage (all sections are on this single page) -->
+  <url>
+    <loc>https://www.kisswardmultimedia.top/</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.kisswardmultimedia.top/img/kisswardmultimedia-logo.png</image:loc>
+      <image:title>Kissward Multimedia Logo — Accra, Ghana Creative Agency</image:title>
+      <image:caption>Kissward Multimedia official logo — premier creative and software agency in Accra, Ghana</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.kisswardmultimedia.top/img/David Kissward.jpeg</image:loc>
+      <image:title>David Kissward — CEO &amp; Founder, Kissward Multimedia</image:title>
+      <image:caption>David Kissward, Ghanaian multimedia professional and founder of Kissward Multimedia in Accra, Ghana</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://www.kisswardmultimedia.top/privacy-policy.html</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
