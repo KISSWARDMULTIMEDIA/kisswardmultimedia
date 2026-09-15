@@ -1,0 +1,34 @@
+{
+  "name": "Kissward Multimedia",
+  "short_name": "Kissward",
+  "description": "Kissward Multimedia is Accra, Ghana's premier creative and software agency. Video editing, website and app development, graphic design, animation, branding, and IT support.",
+  "lang": "en-GH",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "categories": ["business", "design", "productivity", "software"],
+  "icons": [
+    {
+      "src": "img/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/icon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

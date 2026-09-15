@@ -2147,9 +2147,12 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="img/kisswardmultimedia-logo.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="img/kisswardmultimedia-logo.png" />
-  <link rel="apple-touch-icon" href="img/kisswardmultimedia-logo.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192x192.png" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
   <link rel="shortcut icon" href="img/kisswardmultimedia-logo.png" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.webmanifest" />
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5331161866123229" crossorigin="anonymous"></script>
@@ -3120,6 +3123,13 @@
 
 <script src="assets/js/analytics.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () {});
+    });
+  }
+</script>
 </body>
 </html>
 
