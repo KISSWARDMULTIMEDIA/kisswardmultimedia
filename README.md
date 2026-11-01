@@ -51,3 +51,4 @@ Upload the repo contents to the web root of your cPanel host. Keep `.htaccess` a
 
 - Trackers: Google Analytics ID and Meta Pixel are embedded in `index.html`. Remove or replace them for a non-tracked fork.
 - There are duplicate portfolio images between `img/` and `assets/img/`; only `img/` is referenced by the HTML.
+- Google Play app icons and the official Play badge live in `img/apps/` and are used by the "Apps" section near the top of the homepage.

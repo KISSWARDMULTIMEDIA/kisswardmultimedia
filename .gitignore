@@ -21,3 +21,6 @@ deploy.log
 # Scratch / temp
 *.tmp
 *~
+# Local-only, never commit
+km.rar
+assets/img/

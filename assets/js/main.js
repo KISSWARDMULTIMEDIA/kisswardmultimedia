@@ -32,7 +32,7 @@
     requestAnimationFrame(animateRing);
   }
   animateRing();
-  document.querySelectorAll('a, button, [role="button"], .service-card, .blog-card, .blog-featured, .platform-card, .social-card, .contact-method, .testi-card, .ceo-value-card, .filter-btn, .badge-pill, .expertise-tag, .chip').forEach(el => {
+  document.querySelectorAll('a, button, [role="button"], .service-card, .blog-card, .blog-featured, .platform-card, .social-card, .contact-method, .testi-card, .ceo-value-card, .filter-btn, .badge-pill, .expertise-tag, .chip, .app-card, .play-badge-link').forEach(el => {
     el.addEventListener('mouseenter', () => { cursor.classList.add('cursor-hover'); ring && ring.classList.add('cursor-ring-hover'); });
     el.addEventListener('mouseleave', () => { cursor.classList.remove('cursor-hover'); ring && ring.classList.remove('cursor-ring-hover'); });
   });
