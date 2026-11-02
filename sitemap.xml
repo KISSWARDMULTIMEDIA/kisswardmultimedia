@@ -8,28 +8,28 @@
 
   <!-- Homepage (all sections are on this single page) -->
   <url>
-    <loc>https://www.kisswardmultimedia.top/</loc>
-    <lastmod>2026-06-22</lastmod>
+    <loc>https://kisswardmultimedia.github.io/kisswardmultimedia/</loc>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://www.kisswardmultimedia.top/img/kisswardmultimedia-logo.png</image:loc>
-      <image:title>Kissward Multimedia Logo — Accra, Ghana Creative Agency</image:title>
-      <image:caption>Kissward Multimedia official logo — premier creative and software agency in Accra, Ghana</image:caption>
+      <image:loc>https://kisswardmultimedia.github.io/kisswardmultimedia/img/kisswardmultimedia-logo.png</image:loc>
+      <image:title>Kissward Multimedia logo - Accra, Ghana creative studio</image:title>
+      <image:caption>Kissward Multimedia official logo, a creative and software studio in Accra, Ghana</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.kisswardmultimedia.top/img/David Kissward.jpeg</image:loc>
-      <image:title>David Kissward — CEO &amp; Founder, Kissward Multimedia</image:title>
-      <image:caption>David Kissward, Ghanaian multimedia professional and founder of Kissward Multimedia in Accra, Ghana</image:caption>
+      <image:loc>https://kisswardmultimedia.github.io/kisswardmultimedia/img/David%20Kissward.jpeg</image:loc>
+      <image:title>David Kissward, CEO and Founder of Kissward Multimedia</image:title>
+      <image:caption>David Kissward, Ghanaian multimedia professional and founder of Kissward Multimedia in Accra</image:caption>
     </image:image>
   </url>
 
   <!-- Privacy Policy -->
   <url>
-    <loc>https://www.kisswardmultimedia.top/privacy-policy.html</loc>
-    <lastmod>2026-06-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://kisswardmultimedia.github.io/kisswardmultimedia/privacy-policy.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>

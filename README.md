@@ -4,7 +4,7 @@ Official website for **Kissward Multimedia** — a creative and software agency 
 
 ## Live Site
 
-- **Production:** https://www.kisswardmultimedia.top/
+- **Production:** https://kisswardmultimedia.github.io/kisswardmultimedia/
 
 ## Tech
 
@@ -43,9 +43,9 @@ This site can be served free via GitHub Pages:
 
 > The site uses relative paths (`img/`, `assets/`) so it works from any sub-path. The `.htaccess` file is Apache-specific and ignored by GitHub Pages — it can stay in the repo harmlessly.
 
-### Production (kisswardmultimedia.top)
+### Production
 
-Upload the repo contents to the web root of your cPanel host. Keep `.htaccess` and the `robots.txt`/`sitemap.xml` which reference the production domain.
+The live site is published at https://kisswardmultimedia.github.io/kisswardmultimedia/ via GitHub Actions on every push to `main`. Canonical URLs, Open Graph tags, structured data, `sitemap.xml` and `robots.txt` all point at that URL — update them together if a custom domain is added.
 
 ## Notes
 
