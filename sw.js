@@ -1,13 +1,24 @@
-const CACHE_NAME = "kissward-site-v1";
+const CACHE_NAME = "kissward-site-v3";
 const CORE_ASSETS = [
   "./",
   "./index.html",
+  "./privacy-policy.html",
   "./manifest.webmanifest",
   "./assets/css/style.css",
+  "./assets/css/privacy.css",
   "./assets/js/main.js",
+  "./assets/fonts/bricolage-grotesque-400800-latin.woff2",
+  "./assets/fonts/inter-400600-latin.woff2",
+  "./img/brand/logo-96.webp",
+  "./img/brand/logo-192.webp",
   "./img/kisswardmultimedia-logo.png",
   "./img/icon-192x192.png",
-  "./img/icon-512x512.png"
+  "./img/icon-512x512.png",
+  "./img/apps/orbtanker-192.webp",
+  "./img/apps/bible-192.webp",
+  "./img/work/01-480.webp",
+  "./img/work/02-480.webp",
+  "./img/work/03-480.webp"
 ];
 
 self.addEventListener("install", (event) => {

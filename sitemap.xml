@@ -9,7 +9,7 @@
   <!-- Homepage (all sections are on this single page) -->
   <url>
     <loc>https://kisswardmultimedia.github.io/kisswardmultimedia/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -18,16 +18,26 @@
       <image:caption>Kissward Multimedia official logo, a creative and software studio in Accra, Ghana</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://kisswardmultimedia.github.io/kisswardmultimedia/img/David%20Kissward.jpeg</image:loc>
+      <image:loc>https://kisswardmultimedia.github.io/kisswardmultimedia/img/people/david-640.webp</image:loc>
       <image:title>David Kissward, CEO and Founder of Kissward Multimedia</image:title>
       <image:caption>David Kissward, Ghanaian multimedia professional and founder of Kissward Multimedia in Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisswardmultimedia.github.io/kisswardmultimedia/img/apps/orbtanker-192.webp</image:loc>
+      <image:title>Orb Tanker - Android game by Kissward Multimedia on Google Play</image:title>
+      <image:caption>Orb Tanker app icon, an arcade orb-collecting game published by Kissward Multimedia</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://kisswardmultimedia.github.io/kisswardmultimedia/img/apps/bible-192.webp</image:loc>
+      <image:title>Timeless Bible Stories - Android app by Kissward Multimedia on Google Play</image:title>
+      <image:caption>Timeless Bible Stories app icon, a story and audio app published by Kissward Multimedia</image:caption>
     </image:image>
   </url>
 
   <!-- Privacy Policy -->
   <url>
     <loc>https://kisswardmultimedia.github.io/kisswardmultimedia/privacy-policy.html</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
