@@ -1,4 +1,4 @@
-const CACHE_NAME = "kissward-site-v3";
+const CACHE_NAME = "kissward-site-v4";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -11,6 +11,7 @@ const CORE_ASSETS = [
   "./assets/fonts/inter-400600-latin.woff2",
   "./img/brand/logo-96.webp",
   "./img/brand/logo-192.webp",
+  "./img/brand/logo-loop-still.webp",
   "./img/kisswardmultimedia-logo.png",
   "./img/icon-192x192.png",
   "./img/icon-512x512.png",

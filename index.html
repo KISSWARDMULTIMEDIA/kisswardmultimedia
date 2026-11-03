@@ -389,14 +389,11 @@
       </div>
 
       <div class="hero__media">
-        <figure class="hero__img hero__img--tall">
-          <img src="img/work/07-480.webp" sizes="(min-width: 900px) 22vw, 40vw" alt="Character animation still from a Kissward Multimedia production" width="480" height="898" loading="lazy" decoding="async" />
-        </figure>
-        <figure class="hero__img">
-          <img src="img/work/01-800.webp" srcset="img/work/01-480.webp 480w, img/work/01-800.webp 800w, img/work/01-1080.webp 1080w" sizes="(min-width: 900px) 46vw, 100vw" alt="DC Carnival billboard designed by Kissward Multimedia" width="1080" height="763" fetchpriority="high" decoding="async" />
-        </figure>
-        <figure class="hero__img hero__img--small">
-          <img src="img/work/13-480.webp" srcset="img/work/13-480.webp 480w, img/work/13-800.webp 800w" sizes="(min-width: 900px) 24vw, 40vw" alt="3D motion graphics frame from a Kissward Multimedia project" width="1080" height="607" loading="lazy" decoding="async" />
+        <figure class="hero__loop">
+          <video class="hero__loop-video" id="heroLoop" width="480" height="480" poster="img/brand/logo-loop-still.webp" muted loop playsinline preload="none" role="img" aria-label="Kissward Multimedia animated logo">
+            <source src="img/brand/logo-loop.mp4" type="video/mp4" />
+            <img src="img/brand/logo-loop-still.webp" alt="" width="480" height="480" />
+          </video>
         </figure>
         <a class="hero__badge" href="#apps">
           <img src="img/apps/orbtanker-192.webp" alt="" width="192" height="192" loading="lazy" decoding="async" />

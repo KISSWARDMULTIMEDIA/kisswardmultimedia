@@ -410,4 +410,26 @@
     });
     menuObserver.observe(menu, { attributes: true, attributeFilter: ['class'] });
   }
+
+  /* ------------------------------------------------------------------ *
+   * 10. Hero logo loop (autoplay muted, respects reduced motion)
+   * ------------------------------------------------------------------ */
+  var heroLoop = $('#heroLoop');
+
+  if (heroLoop) {
+    var motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function syncHeroLoop() {
+      if (motionQuery.matches) {
+        heroLoop.pause();
+        return;
+      }
+      var attempt = heroLoop.play();
+      if (attempt && attempt.catch) attempt.catch(function () {});
+    }
+
+    syncHeroLoop();
+    if (motionQuery.addEventListener) motionQuery.addEventListener('change', syncHeroLoop);
+    else if (motionQuery.addListener) motionQuery.addListener(syncHeroLoop);
+  }
 })();
